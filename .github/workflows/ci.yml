@@ -30,3 +30,10 @@ jobs:
         run: pnpm run typecheck
       - name: Build
         run: pnpm build
+      - name: Smoke test
+        run: |
+          pnpm start &
+          curl --fail --silent --output /dev/null \
+            --retry 20 --retry-delay 1 --retry-connrefused \
+            http://localhost:3000/
+          pnpm run smoke
