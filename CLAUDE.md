@@ -37,8 +37,6 @@ pnpm run lint         # ESLint (next core-web-vitals + typescript); does not che
 pnpm run typecheck    # tsc --noEmit
 ```
 
-There are no tests. After changes, verify with `pnpm run lint`, `pnpm run typecheck` and `pnpm run build`.
-
 ## Architecture notes
 
 - **App Router under `src/app/`.** The `@/*` path alias maps to `./src/*`.
