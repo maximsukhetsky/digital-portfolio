@@ -37,8 +37,6 @@ pnpm run lint         # ESLint (next core-web-vitals + typescript); does not che
 pnpm run typecheck    # tsc --noEmit
 ```
 
-There are no tests. After changes, verify with `pnpm run lint`, `pnpm run typecheck` and `pnpm run build`.
-
 ## Architecture notes
 
 - **App Router under `src/app/`.** The `@/*` path alias maps to `./src/*`.
@@ -69,7 +67,7 @@ Before modifying code:
 
 - Do not create commits unless explicitly requested.
 - Do not modify Git history.
-- Use Conventional Commits with the following types: `feat`, `fix`, `chore`, `refactor`, `test`.
+- Use Conventional Commits with the following types: `feat`, `fix`, `chore`, `refactor`, `test`, `docs`.
 - Never push a direct change to `main` branch. Only feature branch via PRs.
 - Do not reset, revert, or discard user changes unless explicitly requested.
 - Keep commits focused and avoid unrelated changes.
