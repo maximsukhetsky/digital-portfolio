@@ -11,7 +11,7 @@ Personal digital portfolio site (English content, `<html lang="en">`). Started f
 - Next.js
 - React
 - TypeScript
-- CSS
+- SCSS (Sass) with CSS Modules
 - ESLint
 
 ## Development Guidelines
@@ -34,7 +34,7 @@ Package manager is **pnpm only** (`packageManager: pnpm@11.0.0`); don't use npm/
 pnpm dev              # dev server at http://localhost:3000
 pnpm build            # production build (also type-checks)
 pnpm start            # serve the production build
-pnpm run lint         # ESLint (next core-web-vitals + typescript); does not check CSS
+pnpm run lint         # ESLint (next core-web-vitals + typescript); does not check CSS/SCSS
 pnpm run typecheck    # tsc --noEmit
 ```
 
@@ -42,8 +42,9 @@ pnpm run typecheck    # tsc --noEmit
 
 - **App Router under `src/app/`.** The `@/*` path alias maps to `./src/*`.
 - **Route types are generated.** `LayoutProps<"/">` in `layout.tsx` is a global type from `.next/types/routes.d.ts`, pulled in by `next-env.d.ts`. If `.next/` is missing (fresh clone or after cleanup), run `pnpm dev` or `pnpm build` once before `typecheck`. `next-env.d.ts` is generated and gitignored; don't edit it.
-- **Global CSS chain.** `layout.tsx` imports only `globals.css`, whose first line is `@import "./reset.css"`. Keep new global styles in `globals.css`, after that `@import`.
-- **The reset lives in `@layer reset`.** Every rule in `reset.css` sits inside that layer, so any unlayered style (in `globals.css` or CSS Modules) overrides it no matter the import order or specificity.
+- **Global styles live in `src/styles/`.** `layout.tsx` imports only `@/styles/globals.scss`, whose first line is `@use "./reset"` (the `src/styles/_reset.scss` partial). Keep new global styles in `globals.scss`, after that `@use`. `src/app/` holds routes only.
+- **The reset lives in `@layer reset`.** Every rule in `_reset.scss` sits inside that layer, so any unlayered style (in `globals.scss` or SCSS modules) overrides it no matter the import order or specificity.
+- **SCSS modules.** Component styles live next to the component as `Component.module.scss` and are imported as `styles`. Use `@use`/`@forward`, never `@import`. Shared variables and mixins go in `src/styles/_*.scss` partials next to `globals.scss`, created only when first needed.
 - **Metadata** (`title`, `description`) is defined in `src/app/layout.tsx`.
 
 ## Before Making Changes
