@@ -24,6 +24,7 @@ Personal digital portfolio site (English content, `<html lang="en">`). Started f
 - Keep business logic separate from presentation when appropriate.
 - Follow the existing project structure and conventions before introducing new patterns.
 - Do not add dependencies unless they are actually necessary.
+- Use named type imports from React with `import type`, such as `ReactNode` instead of `React.ReactNode`. Apply this convention consistently in new code.
 
 ## Commands
 
@@ -71,6 +72,9 @@ Before modifying code:
 - Never push a direct change to `main` branch. Only feature branch via PRs.
 - Do not reset, revert, or discard user changes unless explicitly requested.
 - Keep commits focused and avoid unrelated changes.
+- Do not add automated signatures to commit messages, including `Generated with Claude Code` or `Co-Authored-By`.
+- Use only a meaningful commit message following Conventional Commits.
+- Before adding accessibility attributes (such as `aria-label`), please ask and provide a rationale for why they are needed in this specific instance.
 
 ## Verification
 
