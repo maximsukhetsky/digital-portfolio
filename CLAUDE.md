@@ -43,7 +43,7 @@ pnpm run typecheck    # tsc --noEmit
 - **App Router under `src/app/`.** The `@/*` path alias maps to `./src/*`.
 - **Route types are generated.** `LayoutProps<"/">` in `layout.tsx` is a global type from `.next/types/routes.d.ts`, pulled in by `next-env.d.ts`. If `.next/` is missing (fresh clone or after cleanup), run `pnpm dev` or `pnpm build` once before `typecheck`. `next-env.d.ts` is generated and gitignored; don't edit it.
 - **Global CSS chain.** `layout.tsx` imports only `globals.css`, whose first line is `@import "./reset.css"`. Keep new global styles in `globals.css`, after that `@import`.
-- **The reset lives in `@layer reset`.** Every rule in `reset.css` sits inside that layer, so any unlayered style (in `globals.css` or CSS Modules) overrides it no matter the import order or specificity. The reset keeps `padding` on lists and form controls and zeroes only `margin`.
+- **The reset lives in `@layer reset`.** Every rule in `reset.css` sits inside that layer, so any unlayered style (in `globals.css` or CSS Modules) overrides it no matter the import order or specificity.
 - **Metadata** (`title`, `description`) is defined in `src/app/layout.tsx`.
 
 ## Before Making Changes
