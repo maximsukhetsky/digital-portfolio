@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Personal digital portfolio site (English content, `<html lang="en">`). Started from `create-next-app` and stripped down to a clean boilerplate: no demo assets, no `public/` directory, no fonts via `next/font`, no favicon yet.
+Personal digital portfolio site (English content, `<html lang="en">`). Started from `create-next-app` and stripped down to a clean boilerplate: no demo assets, no `public/` directory, no favicon yet.
 
 ## Tech Stack
 
@@ -26,6 +26,12 @@ Personal digital portfolio site (English content, `<html lang="en">`). Started f
 - Do not add dependencies unless they are actually necessary.
 - Use named type imports from React with `import type`, such as `ReactNode` instead of `React.ReactNode`. Apply this convention consistently in new code.
 
+## Styles
+
+- Use `@use` or `@forward` for style imports, never `@import`.
+- Import the variables partial with the `v` namespace: `@use "@/styles/variables" as v;` (or `@use "./variables" as v;` inside `src/styles/`), then reference variables as `v.$text-font`.
+- Set fonts only through the variables `v.$heading-font` and `v.$text-font`, never with font names or `var(--heading-font)` / `var(--text-font)` directly.
+
 ## Commands
 
 Package manager is **pnpm only** (`packageManager: pnpm@11.0.0`); don't use npm/yarn/bun.
@@ -44,7 +50,8 @@ pnpm run typecheck    # tsc --noEmit
 - **Route types are generated.** `LayoutProps<"/">` in `layout.tsx` is a global type from `.next/types/routes.d.ts`, pulled in by `next-env.d.ts`. If `.next/` is missing (fresh clone or after cleanup), run `pnpm dev` or `pnpm build` once before `typecheck`. `next-env.d.ts` is generated and gitignored; don't edit it.
 - **Global styles live in `src/styles/`.** `layout.tsx` imports only `@/styles/globals.scss`, whose first line is `@use "./reset"` (the `src/styles/_reset.scss` partial). Keep new global styles in `globals.scss`, after that `@use`. `src/app/` holds routes only.
 - **The reset lives in `@layer reset`.** Every rule in `_reset.scss` sits inside that layer, so any unlayered style (in `globals.scss` or SCSS modules) overrides it no matter the import order or specificity.
-- **SCSS modules.** Component styles live next to the component as `Component.module.scss` and are imported as `styles`. Use `@use`/`@forward`, never `@import`. Shared variables and mixins go in `src/styles/_*.scss` partials next to `globals.scss`, created only when first needed.
+- **SCSS modules.** Component styles live next to the component as `Component.module.scss` and are imported as `styles`. Shared SCSS variables live in `src/styles/_variables.scss`; other shared partials (e.g. mixins) go in `src/styles/_*.scss` next to `globals.scss`, created only when first needed.
+- **Fonts.** Declared in `src/lib/fonts.ts` via `next/font/google`: Sofia Sans Condensed for headings (`--heading-font`) and Inter for body text (`--text-font`), both variable fonts, `latin` subset only. `layout.tsx` puts both `.variable` classes on `<html>`, so the CSS variables are available from `:root` down. `_variables.scss` wraps them as `$heading-font` / `$text-font` with a `sans-serif` fallback. Headings get their font explicitly in component modules; there is no global `h1`–`h6` font rule. Keep `adjustFontFallback` on (the default) to limit CLS; if a new font has no fallback metrics in Next (build warns `Failed to find font override values`), pick another font or define fallback overrides manually.
 - **Metadata** (`title`, `description`) is defined in `src/app/layout.tsx`.
 
 ## Before Making Changes
