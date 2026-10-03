@@ -1,0 +1,16 @@
+@use "sass:map";
+
+$breakpoints: (
+  tablet: 768px,
+  desktop: 1024px,
+);
+
+@mixin from($name) {
+  @if not map.has-key($breakpoints, $name) {
+    @error "bp.from(): unknown breakpoint `#{$name}`. Use: #{map.keys($breakpoints)}.";
+  }
+
+  @media (min-width: map.get($breakpoints, $name)) {
+    @content;
+  }
+}

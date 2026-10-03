@@ -89,7 +89,7 @@ for (const { path, title, file } of PAGES) {
 }
 
 test("home page has main navigation with links to all pages", () => {
-  const nav = home.html.match(/<nav>[\s\S]*?<\/nav>/);
+  const nav = home.html.match(/<nav[\s>][\s\S]*?<\/nav>/);
   assert.ok(nav, "main nav not found");
   assert.match(home.html, /<a\s[^>]*href="\/"/, "home link not found");
   for (const { path } of PAGES) {

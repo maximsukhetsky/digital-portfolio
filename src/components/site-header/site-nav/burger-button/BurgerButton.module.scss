@@ -1,0 +1,62 @@
+@use "@/styles/breakpoints" as bp;
+
+.burger {
+  position: relative;
+  z-index: 3;
+
+  width: 44px;
+  height: 44px;
+  // Keeps the header row at the logo height (32px) despite the 44px hit area.
+  margin-block: -6px;
+
+  .line {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+
+    width: 24px;
+    height: 2px;
+    margin-top: -1px;
+
+    background-color: #C7C7C7;
+    border-radius: 2px;
+
+    transition:
+      translate 0.2s ease 0.3s,
+      width 0.2s ease 0.3s,
+      rotate 0.3s cubic-bezier(.68, -.6, .32, 1.6) 0s;
+
+    &:nth-child(1) {
+      translate: 0 -4px;
+    }
+
+    &:nth-child(2) {
+      width: 14px;
+
+      translate: 0 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  &.open .line {
+    width: 24px;
+
+    transition-delay: 0s, 0s, 0.2s;
+    translate: 0 0;
+
+    &:nth-child(1) {
+      rotate: 45deg;
+    }
+
+    &:nth-child(2) {
+      rotate: -45deg;
+    }
+  }
+
+  @include bp.from(tablet) {
+    display: none;
+  }
+}
