@@ -1,6 +1,14 @@
 @use "@/styles/typography" as t;
 @use "@/styles/variables" as v;
 
+// Logo typing: characters appear one at a time with a caret after the last typed one;
+// the caret blinks a few times at the end and disappears.
+$type-delay: 0.3s;
+$type-step: 0.09s;
+$caret-blinks: 3;
+// Number of characters in `<MAX.DEV />` (LOGO in SiteHeader.tsx).
+$logo-length: 11;
+
 .header {
   display: flex;
   align-items: center;
@@ -16,5 +24,73 @@
     letter-spacing: -1%;
 
     color: #C7C7C7;
+  }
+
+  .char {
+    position: relative;
+
+    // Zero duration: the character stays hidden through its delay, then appears at once.
+    animation: logo-type 0s backwards;
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 100%;
+
+      width: 2px;
+
+      background-color: currentColor;
+      opacity: 0;
+
+      pointer-events: none;
+      animation: logo-caret $type-step steps(1);
+    }
+
+    @for $i from 1 through $logo-length {
+      $delay: $type-delay + ($i - 1) * $type-step;
+
+      &:nth-child(#{$i}),
+      &:nth-child(#{$i})::after {
+        animation-delay: $delay;
+      }
+    }
+
+    &:last-child::after {
+      animation: logo-caret-blink 0.8s steps(1) $type-delay + ($logo-length - 1) * $type-step $caret-blinks;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &,
+      &::after,
+      &:last-child::after {
+        animation: none;
+      }
+    }
+  }
+}
+
+@keyframes logo-type {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes logo-caret {
+  from,
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes logo-caret-blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
   }
 }
