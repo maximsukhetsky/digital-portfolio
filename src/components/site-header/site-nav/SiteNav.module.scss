@@ -1,0 +1,71 @@
+@use "@/styles/breakpoints" as bp;
+
+// Center of the burger button: wrapper padding (16px) + half the button (22px)
+// from the right, header padding-top (32px) + half the row height (16px) from the top.
+$origin: calc(100% - 38px) 48px;
+
+.nav {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+
+  padding: 24px 16px;
+
+  background-color: #0A0A0A;
+  visibility: hidden;
+
+  transition:
+    clip-path 0.35s cubic-bezier(.77, 0, .18, 1) 0.15s,
+    visibility 0s linear 0.5s;
+  clip-path: circle(0 at $origin);
+
+  &.open {
+    visibility: visible;
+
+    transition:
+      clip-path 0.5s cubic-bezier(.77, 0, .18, 1),
+      visibility 0s;
+    clip-path: circle(150vmax at $origin);
+  }
+
+  @include bp.from(tablet) {
+    &,
+    &.open {
+      position: static;
+      z-index: auto;
+
+      flex-direction: row;
+      align-items: center;
+      gap: 32px;
+
+      padding: 0;
+
+      background-color: transparent;
+      visibility: visible;
+
+      transition: none;
+      clip-path: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &,
+    &.open {
+      transition: none;
+    }
+  }
+}
+
+:global(body):has(.nav.open) {
+  overflow: hidden;
+
+  @include bp.from(tablet) {
+    overflow: visible;
+  }
+}

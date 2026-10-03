@@ -1,20 +1,15 @@
 import Link from "next/link";
-import { NAV_ITEMS } from "@/lib/navigation";
-import NavLink from "./NavLink";
+import SiteNav from "./site-nav/SiteNav";
+import styles from "./SiteHeader.module.scss";
+import classNames from "classnames/bind";
+
+const cn = classNames.bind(styles);
 
 export default function SiteHeader() {
   return (
-    <header>
-      <Link href="/">Maxim Sukhetsky</Link>
-      <nav>
-        <ul>
-          {NAV_ITEMS.map(({ href, label }) => (
-            <li key={href}>
-              <NavLink href={href}>{label}</NavLink>
-            </li>
-          ))}
-        </ul>
-      </nav>
+    <header className={cn("header", "wrapper")}>
+      <Link href="/" className={cn("logo")}>{`<MAX.DEV />`}</Link>
+      <SiteNav />
     </header>
   );
 }

@@ -1,0 +1,19 @@
+@use "sass:math";
+
+@function -line-height($size, $line-height) {
+  @if $line-height == null or math.is-unitless($line-height) {
+    @return $line-height;
+  }
+
+  @if math.compatible($size, $line-height) {
+    @return math.div($line-height, $size);
+  }
+
+  @error "text(): line-height `#{$line-height}` must be unitless or use the same unit as font-size `#{$size}`.";
+}
+
+@mixin text($size, $line-height: null, $weight: null) {
+  font-size: $size;
+  line-height: -line-height($size, $line-height);
+  font-weight: $weight;
+}

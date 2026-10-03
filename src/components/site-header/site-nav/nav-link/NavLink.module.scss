@@ -1,0 +1,39 @@
+@use "@/styles/breakpoints" as bp;
+@use "@/styles/typography" as t;
+@use "@/styles/variables" as v;
+
+.link {
+  font-family: v.$text-font;
+  @include t.text(20px, 28px, 500);
+  letter-spacing: -3%;
+
+  color: #C7C7C7;
+  opacity: 0;
+
+  transition: opacity 0.15s ease, translate 0.15s ease;
+  translate: 0 24px;
+
+  &.open {
+    opacity: 1;
+
+    transition-duration: 0.3s;
+    translate: 0 0;
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        transition-delay: 0.1s + ($i - 1) * 0.05s;
+      }
+    }
+  }
+
+  @include bp.from(tablet) {
+    opacity: 1;
+
+    transition: none;
+    translate: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
