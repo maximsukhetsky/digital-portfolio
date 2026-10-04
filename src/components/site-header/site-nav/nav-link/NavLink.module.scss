@@ -3,8 +3,8 @@
 @use "@/styles/variables" as v;
 
 .link {
-  font-family: v.$text-font;
-  @include t.text(20px, 28px, 500);
+  font-family: v.$inter-font;
+  @include t.text(20px, 1.5, 500);
   letter-spacing: -3%;
 
   color: #C7C7C7;
