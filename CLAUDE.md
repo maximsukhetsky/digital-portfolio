@@ -8,7 +8,7 @@ Personal digital portfolio site (English content, `<html lang="en">`). Started f
 
 ## Tech Stack
 
-- Next.js
+- Next.js 16 — for version-specific APIs and conventions, consult `node_modules/next/dist/docs/` rather than relying on prior knowledge.
 - React
 - TypeScript
 - SCSS (Sass) with CSS Modules
@@ -61,6 +61,8 @@ When defining component props or passing props to JSX elements, keep them ordere
 
 `key` always comes first, before all other props.
 
+For `Link` (and `<a>`), use this order: `href`, `target`, `rel`, `className`, `aria-label`. Any other props (e.g. `onClick`) keep their place from the general order between `rel` and `className`.
+
 Keep the ordering consistent across the codebase. Do not order props alphabetically unless explicitly required by the project.
 
 When several props have the same priority, keep their existing logical order rather than reordering them unnecessarily.
@@ -81,8 +83,9 @@ When several props have the same priority, keep their existing logical order rat
 ### SCSS
 
 - Use `@use` or `@forward` for style imports, never `@import`.
-- Import the variables partial with the `v` namespace: `@use "@/styles/variables" as v;` (or `@use "./variables" as v;` inside `src/styles/`), then reference variables as `v.$text-font`.
-- Set fonts only through the variables `v.$heading-font` and `v.$text-font`, never with font names or `var(--heading-font)` / `var(--text-font)` directly.
+- Import the variables partial with the `v` namespace: `@use "@/styles/variables" as v;` (or `@use "./variables" as v;` inside `src/styles/`), then reference variables as `v.$manrope-font`.
+- Set fonts only through the variables `v.$bebas-neue-font`, `v.$manrope-font` and `v.$inter-font`, never with font names or `var(--*-font)` directly.
+- For circles and fully rounded shapes always use `border-radius: 50px`, never `50%`.
 - Set text sizing through the typography mixin: `@use "@/styles/typography" as t;`, then `@include t.text($size, $line-height, $weight)` (last two optional). A `px` line-height is converted to a unitless ratio; a unitless one is output as is. The mixin does not set `font-family`.
 - Use the full property name. For example, use `background-color: #000` instead of `background: #000`.
 
@@ -93,6 +96,7 @@ When several props have the same priority, keep their existing logical order rat
 - Use `@include bp.from(tablet) { ... }` for ≥ 768px.
 - Use `@include bp.from(desktop) { ... }` for ≥ 1024px.
 - Never hardcode breakpoint widths in `@media`.
+- Wrap hover effects in `@include bp.hover { ... }` (`(hover: hover) and (pointer: fine)`), so they apply only on devices with a cursor. Base styles must show the final, usable state for touch devices; put any hover-only "collapsed" state inside the mixin too.
 
 ### CSS/SCSS Declaration Order
 
@@ -186,14 +190,23 @@ Keep pseudo-elements and state-specific styles after the base declarations. Do n
 ### Fonts
 
 - Fonts are declared in `src/lib/fonts.ts` via `next/font/google`.
-- Sofia Sans Condensed is used for headings (`--heading-font`).
-- Inter is used for body text (`--text-font`).
-- Both are variable fonts with the `latin` subset only.
-- `layout.tsx` puts both `.variable` classes on `<html>`, so the CSS variables are available from `:root` down.
-- `_variables.scss` wraps them as `$heading-font` / `$text-font` with a `sans-serif` fallback.
+- Bebas Neue is used for headings (`--bebas-neue-font`, weight 400).
+- Manrope is used for body text and buttons (`--manrope-font`, weights 400–700).
+- Inter is used for navigation links (`--inter-font`, weight 500).
+- All fonts load the `latin` subset only, with `display: "swap"`.
+- `layout.tsx` puts all `.variable` classes on `<html>`, so the CSS variables are available from `:root` down.
+- `_variables.scss` wraps them as `$bebas-neue-font` / `$manrope-font` / `$inter-font` with a `sans-serif` fallback.
 - Headings get their font explicitly in component modules; there is no global `h1`–`h6` font rule.
 - Keep `adjustFontFallback` on (the default) to limit CLS.
 - If a new font has no fallback metrics in Next (build warns `Failed to find font override values`), pick another font or define fallback overrides manually.
+
+### Icons
+
+- SVG icons live in `src/constants/icons.tsx` as JSX element constants, not components: `export const arrowSVG = (<svg>...</svg>);`.
+- Name icon constants in camelCase with an `SVG` suffix (`arrowSVG`, `closeSVG`), not PascalCase, since they are elements, not components.
+- Every icon `<svg>` has `aria-hidden="true"`: icons are decorative, so the parent element provides the accessible name (visible text or `aria-label`).
+- Render them as `{arrowSVG}` and style them from the parent's module (`& svg { ... }`, `& path { fill: ... }`).
+- When adding an icon from Figma, drop `xmlns`, empty `clip-path`/`<defs>` wrappers, and hardcoded `id`s; replace hardcoded `fill`/`stroke` colors with `currentColor`.
 
 ### Metadata
 

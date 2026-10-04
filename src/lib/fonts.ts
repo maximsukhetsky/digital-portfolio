@@ -1,13 +1,22 @@
-import { Inter, Sofia_Sans_Condensed } from "next/font/google";
+import { Manrope, Bebas_Neue, Inter } from "next/font/google";
 
-export const sofiaSansCondensed = Sofia_Sans_Condensed({
+export const bebasNeueFont = Bebas_Neue({
+  weight: ["400"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--heading-font",
+  variable: "--bebas-neue-font",
 });
 
-export const inter = Inter({
+export const interFont = Inter({
+  weight: ["500"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--text-font",
+  variable: "--inter-font",
+});
+
+export const manropeFont = Manrope({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--manrope-font",
 });

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SiteHeader from "@/components/site-header/SiteHeader";
-import { inter, sofiaSansCondensed } from "@/lib/fonts";
+import { bebasNeueFont, interFont, manropeFont } from "@/lib/fonts";
 import "@/styles/globals.scss";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${sofiaSansCondensed.variable}`}>
+    <html lang="en" className={`${bebasNeueFont.variable} ${interFont.variable} ${manropeFont.variable}`}>
       <body>
         <SiteHeader />
         {children}
