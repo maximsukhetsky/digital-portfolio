@@ -1,0 +1,130 @@
+@use "@/styles/typography" as t;
+@use "@/styles/variables" as v;
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .preview {
+    position: relative;
+
+    padding: 46px 32px 0;
+
+    background-color: #1A1A1A;
+    border-radius: 6px;
+
+    .label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+
+      padding: 6px 12px;
+
+      font-family: v.$manrope-font;
+      @include t.text(12px, 1.5, 500);
+      letter-spacing: 0.12px;
+
+      color: #FFF;
+      background-color: #0A0A0A;
+      border-radius: 16px;
+    }
+
+    .photo {
+      width: 100%;
+      max-width: 456px;
+      height: auto;
+
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+  }
+
+  .content {
+    flex-shrink: 1.2;
+
+    .title {
+      padding-bottom: 16px;
+
+      font-family: v.$manrope-font;
+      @include t.text(24px, 1.4, 500);
+
+      color: #FFF;
+    }
+
+    .description {
+      padding-bottom: 32px;
+
+      font-family: v.$manrope-font;
+      @include t.text(16px, 1.6);
+
+      color: #C7C7C7;
+    }
+
+    .info {
+      padding-bottom: 40px;
+
+      .info-title {
+        padding-bottom: 16px;
+
+        font-family: v.$manrope-font;
+        @include t.text(16px, 1.6, 500);
+        text-transform: uppercase;
+
+        color: #FFF;
+      }
+
+      .details {
+        border-top: 1px solid #484848;
+
+        .row {
+          display: flex;
+          justify-content: space-between;
+
+          padding: 16px 0;
+
+          border-bottom: 1px solid #484848;
+
+          .caption,
+          .value {
+            font-family: v.$manrope-font;
+            @include t.text(16px, 1.6, 500);
+          }
+
+          .caption {
+            color: #FFF;
+          }
+
+          .value {
+            color: #C7C7C7;
+          }
+        }
+      }
+    }
+
+    .controls {
+      display: flex;
+      gap: 24px;
+
+      .link {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        padding-bottom: 5px;
+
+        font-family: v.$manrope-font;
+        @include t.text(14px, 1.5, 700);
+        text-transform: uppercase;
+
+        color: #D3E97A;
+        border-bottom: 2px solid #D3E97A;
+
+        .icon {
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
+  }
+}

@@ -35,6 +35,7 @@ Personal digital portfolio site (English content, `<html lang="en">`). Started f
 - Use a mobile-first approach when building the architecture.
 - Don't use `useEffect` unnecessarily; use it only when a specific subscription is required or to handle a side effect.
 - Do not use single-line arrow functions.
+- Never add empty wrapper elements without a `className` or `id` (e.g. a bare `<li>` or `<div>` just to hold a `key`); put the `key` on the component itself or give the wrapper a real purpose.
 
 ### Imports
 
@@ -88,6 +89,7 @@ When several props have the same priority, keep their existing logical order rat
 - For circles and fully rounded shapes always use `border-radius: 50px`, never `50%`.
 - Set text sizing through the typography mixin: `@use "@/styles/typography" as t;`, then `@include t.text($size, $line-height, $weight)` (last two optional). A `px` line-height is converted to a unitless ratio; a unitless one is output as is. The mixin does not set `font-family`.
 - Use the full property name. For example, use `background-color: #000` instead of `background: #000`.
+- Nest selectors to mirror the JSX block structure (e.g. `.heading { .title {} .subtitle {} }`), in markup order, so the SCSS shows how the layout is built. Don't flatten modules.
 
 ### Responsive Design
 
