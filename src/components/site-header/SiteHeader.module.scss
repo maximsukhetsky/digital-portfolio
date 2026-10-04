@@ -10,12 +10,18 @@ $caret-blinks: 3;
 $logo-length: 11;
 
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
 
   min-height: 64px;
+
+  background-color: #0A0A0A;
 
   .logo {
     font-family: v.$bebas-neue-font;

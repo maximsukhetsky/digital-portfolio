@@ -1,0 +1,43 @@
+@use "@/styles/typography" as t;
+@use "@/styles/variables" as v;
+
+.about-me {
+  padding-top: 64px;
+  padding-bottom: 64px;
+
+  border-bottom: 1px solid #484848;
+
+  .title {
+    padding-bottom: 12px;
+
+    font-family: v.$bebas-neue-font;
+    @include t.text(43px, 1);
+    letter-spacing: -0.86px;
+
+    color: #FFF;
+  }
+
+  .description {
+    padding-bottom: 16px;
+
+    font-family: v.$manrope-font;
+    @include t.text(16px, 1.6);
+
+    color: #C7C7C7;
+
+    &:last-of-type {
+      padding-bottom: 24px;
+    }
+  }
+
+  .photo-box {
+    padding-bottom: 24px;
+
+    .photo {
+      width: 100%;
+      height: auto;
+
+      border-radius: 16px;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./ProjectCard.module.scss";
 import classNames from "classnames/bind";
-import Link from "next/link";
+import TextLink from "@/components/ui/text-link/TextLink";
 import { arrowSVG, githubSVG } from "@/constants/icons";
 import type { Project } from "@/lib/projects";
 
@@ -35,23 +35,23 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </dl>
         </div>
         <div className={cn("controls")}>
-          <Link
+          <TextLink
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={cn("link")}
+            icon={arrowSVG}
           >
-            Live Demo <span className={cn("icon")}>{arrowSVG}</span>
-          </Link>
+            Live Demo
+          </TextLink>
           {!project.isCommercial && (
-            <Link
+            <TextLink
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className={cn("link")}
+              icon={githubSVG}
             >
-              See on Github <span className={cn("icon")}>{githubSVG}</span>
-            </Link>
+              See on Github
+            </TextLink>
           )}
         </div>
       </div>
