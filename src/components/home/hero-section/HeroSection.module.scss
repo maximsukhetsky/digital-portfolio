@@ -10,30 +10,32 @@
   padding-bottom: 64px;
 
   border-bottom: 1px solid #484848;
-}
 
-.title {
-  padding-bottom: 12px;
+  .intro {
+    .title {
+      padding-bottom: 12px;
 
-  font-family: v.$bebas-neue-font;
-  @include t.text(57px, 1);
-  text-transform: uppercase;
+      font-family: v.$bebas-neue-font;
+      @include t.text(57px, 1);
+      text-transform: uppercase;
 
-  color: #FFF;
-}
+      color: #FFF;
+    }
 
-.description {
-  padding-bottom: 32px;
+    .description {
+      padding-bottom: 32px;
 
-  font-family: v.$manrope-font;
-  @include t.text(16px, 1.6);
+      font-family: v.$manrope-font;
+      @include t.text(16px, 1.6);
 
-  color: #C7C7C7;
-}
+      color: #C7C7C7;
+    }
+  }
 
-.photo {
-  width: 100%;
-  height: auto;
+  .photo {
+    width: 100%;
+    height: auto;
 
-  border-radius: 16px;
+    border-radius: 16px;
+  }
 }

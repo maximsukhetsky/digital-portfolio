@@ -1,0 +1,35 @@
+@use "@/styles/typography" as t;
+@use "@/styles/variables" as v;
+
+.featured-projects {
+  padding-top: 64px;
+  padding-bottom: 64px;
+
+  .heading {
+    padding-bottom: 64px;
+
+    .title {
+      padding-bottom: 12px;
+
+      font-family: v.$bebas-neue-font;
+      @include t.text(43px, 1);
+      letter-spacing: -0.86px;
+
+      color: #FFF;
+    }
+
+    .subtitle {
+      font-family: v.$manrope-font;
+      @include t.text(16px, 1.6);
+      letter-spacing: -0.32px;
+
+      color: #C7C7C7;
+    }
+  }
+
+  .projects-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 96px;
+  }
+}
