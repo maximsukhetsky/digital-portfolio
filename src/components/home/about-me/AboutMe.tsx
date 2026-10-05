@@ -1,5 +1,5 @@
 import Image from "next/image";
-import heroPhoto from "@/assets/images/hero-photo.webp";
+import aboutMePhoto from "@/assets/images/about-me.webp";
 import TextLink from "@/components/ui/text-link/TextLink";
 import styles from "./AboutMe.module.scss";
 import classNames from "classnames/bind";
@@ -14,7 +14,7 @@ export default function AboutMe() {
       <p className={cn("description")}>I enjoy working on complex interfaces, designing reusable solutions, and turning challenging requirements into reliable, scalable products. I’ve worked with Micro Frontends, complex data-driven features, API integrations, and performance optimization, while taking ownership of features from planning to production.</p>
       <p className={cn("description")}>I’m always curious about better ways to build software and continuously explore new technologies and tools, including AI-assisted development.</p>
       <div className={cn("photo-box")}>
-        <Image src={heroPhoto} placeholder="blur" className={cn("photo")} alt="Maxim Sukhetsky" />
+        <Image src={aboutMePhoto} placeholder="blur" className={cn("photo")} alt="Maxim Sukhetsky" />
       </div>
       <TextLink href="/about">More about me</TextLink>
     </section>
