@@ -25,7 +25,7 @@ $origin: calc(100% - 38px) 48px;
     visibility 0s linear 0.5s;
   clip-path: circle(0 at $origin);
 
-  &.open {
+  &--open {
     visibility: visible;
 
     transition:
@@ -36,7 +36,7 @@ $origin: calc(100% - 38px) 48px;
 
   @include bp.from(tablet) {
     &,
-    &.open {
+    &--open {
       position: static;
       z-index: auto;
 
@@ -56,13 +56,13 @@ $origin: calc(100% - 38px) 48px;
 
   @media (prefers-reduced-motion: reduce) {
     &,
-    &.open {
+    &--open {
       transition: none;
     }
   }
 }
 
-:global(body):has(.nav.open) {
+:global(body):has(.nav--open) {
   overflow: hidden;
 
   @include bp.from(tablet) {

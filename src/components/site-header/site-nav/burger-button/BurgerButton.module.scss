@@ -41,7 +41,8 @@
     }
   }
 
-  &.open .line {
+  // :nth-child(n) keeps specificity above the base .line:nth-child() rules.
+  &--open .line:nth-child(n) {
     width: 24px;
 
     transition-delay: 0s, 0s, 0.2s;

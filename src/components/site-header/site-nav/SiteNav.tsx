@@ -29,7 +29,7 @@ export default function SiteNav() {
   return (
     <>
       <BurgerButton isOpen={isOpen} onClick={handleToggle} />
-      <nav className={cn("nav", { open: isOpen })}>
+      <nav className={cn("nav", { "nav--open": isOpen })}>
         {navLinks}
       </nav>
     </>

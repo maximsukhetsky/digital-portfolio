@@ -63,6 +63,13 @@
     cursor: pointer;
   }
 
+  input,
+  textarea {
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+  }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;

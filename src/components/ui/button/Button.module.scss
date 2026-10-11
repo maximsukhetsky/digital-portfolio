@@ -2,4 +2,11 @@
 
 .button {
   font-family: v.$manrope-font;
+
+  transition: 0.1s linear;
+
+  &:focus-visible {
+    outline: 2px solid #D3E97A;
+    outline-offset: 2px;
+  }
 }
