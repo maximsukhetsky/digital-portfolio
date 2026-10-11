@@ -1,0 +1,27 @@
+@use "@/styles/typography" as t;
+@use "@/styles/variables" as v;
+
+.contact-form {
+  width: 100%;
+  max-width: 600px;
+
+  .form-field {
+    padding-bottom: 24px;
+
+    &:last-of-type {
+      padding-bottom: 32px;
+    }
+  }
+
+  .submit-button {
+    padding: 19px 40px;
+
+    font-family: v.$manrope-font;
+    @include t.text(16px, 1, 700);
+    text-transform: uppercase;
+
+    color: #0A0A0A;
+    background-color: #D3E97A;
+    border-radius: 50px;
+  }
+}

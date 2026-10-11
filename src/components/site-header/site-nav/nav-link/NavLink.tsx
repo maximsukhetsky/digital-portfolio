@@ -21,7 +21,7 @@ export default function NavLink({ href, children, isMenuOpen, onClick }: NavLink
     <Link
       href={href}
       onClick={onClick}
-      className={cn("link", { open: isMenuOpen })}
+      className={cn("link", { "link--open": isMenuOpen })}
       aria-current={pathname === href ? "page" : undefined}
     >
       {children}

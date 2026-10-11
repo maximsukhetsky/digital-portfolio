@@ -36,6 +36,8 @@ Personal digital portfolio site (English content, `<html lang="en">`). Started f
 - Don't use `useEffect` unnecessarily; use it only when a specific subscription is required or to handle a side effect.
 - Do not use single-line arrow functions.
 - Never add empty wrapper elements without a `className` or `id` (e.g. a bare `<li>` or `<div>` just to hold a `key`); put the `key` on the component itself or give the wrapper a real purpose.
+- Do not use deprecated APIs or types (e.g. `FormEvent`, `forwardRef`); check `@deprecated` notes in type definitions.
+- Convert values to boolean with `!!value`, not `Boolean(value)`.
 
 ### Imports
 
@@ -90,6 +92,7 @@ When several props have the same priority, keep their existing logical order rat
 - Set text sizing through the typography mixin: `@use "@/styles/typography" as t;`, then `@include t.text($size, $line-height, $weight)` (last two optional). A `px` line-height is converted to a unitless ratio; a unitless one is output as is. The mixin does not set `font-family`.
 - Use the full property name. For example, use `background-color: #000` instead of `background: #000`.
 - Nest selectors to mirror the JSX block structure (e.g. `.heading { .title {} .subtitle {} }`), in markup order, so the SCSS shows how the layout is built. Don't flatten modules.
+- Name state classes as BEM modifiers of their block: `.nav--open`, `.input--error` (`&--open` in SCSS, `cn("nav", { "nav--open": isOpen })` in TSX), never a separate chained class like `.nav.open`.
 
 ### Responsive Design
 

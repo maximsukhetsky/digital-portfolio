@@ -14,7 +14,7 @@ export default function BurgerButton({ isOpen, onClick }: BurgerButtonProps) {
   return (
     <Button
       onClick={onClick}
-      className={cn("burger", { open: isOpen })}
+      className={cn("burger", { "burger--open": isOpen })}
       aria-label={isOpen ? "Close menu" : "Open menu"}
       aria-expanded={isOpen}
     >

@@ -1,0 +1,36 @@
+@use "@/styles/typography" as t;
+@use "@/styles/variables" as v;
+
+.input {
+  display: block;
+
+  width: 100%;
+  padding: 10px 16px;
+
+  font-family: v.$manrope-font;
+  @include t.text(16px, 1.6);
+
+  color: #FFF;
+  background-color: #1A1A1A;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  transition: 0.1s linear;
+
+  &:focus-visible {
+    outline: 2px solid #D3E97A;
+    outline-offset: 2px;
+  }
+
+  &--error {
+    border-color: #FF5A5A;
+
+    &:focus-visible {
+      outline-color: #FF5A5A;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}

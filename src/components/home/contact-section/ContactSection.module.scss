@@ -1,0 +1,52 @@
+@use "@/styles/typography" as t;
+@use "@/styles/variables" as v;
+
+.contact {
+  padding-top: 64px;
+  padding-bottom: 80px;
+
+  .heading {
+    padding-bottom: 64px;
+
+    .title {
+      padding-bottom: 16px;
+
+      font-family: v.$bebas-neue-font;
+      @include t.text(43px, 1);
+      letter-spacing: -0.86px;
+
+      color: #FFF;
+    }
+
+    .subtitle {
+      font-family: v.$manrope-font;
+      @include t.text(16px, 1.6);
+
+      color: #C7C7C7;
+
+      &:first-of-type {
+        padding-bottom: 8px;
+      }
+
+      .link {
+        color: #FFF;
+
+        border-bottom: 1px solid #D3E97A;
+      }
+    }
+  }
+
+  .socials {
+    display: flex;
+    gap: 32px;
+
+    padding-bottom: 64px;
+
+    .social-link {
+      width: 32px;
+      height: 32px;
+
+      color: #D3E97A;
+    }
+  }
+}

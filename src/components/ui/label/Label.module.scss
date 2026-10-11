@@ -1,0 +1,13 @@
+@use "@/styles/typography" as t;
+@use "@/styles/variables" as v;
+
+.label {
+  display: block;
+
+  padding-bottom: 8px;
+
+  font-family: v.$manrope-font;
+  @include t.text(16px, 1.6, 500);
+
+  color: #C7C7C7;
+}
