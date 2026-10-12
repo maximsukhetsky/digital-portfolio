@@ -1,5 +1,5 @@
-import { contactFormFields, contactFormSchema } from "./contactFormSchema";
-import type { ContactFormErrors, ContactFormValues, FieldRules } from "./contactFormSchema";
+import { contactFormFields, contactFormSchema } from "./schema";
+import type { ContactFormErrors, ContactFormValues, FieldRules, ParsedContactForm } from "./types";
 
 function validateField(value: string, rules: FieldRules): string | undefined {
   if (rules.required && !value) {
@@ -21,16 +21,19 @@ function validateField(value: string, rules: FieldRules): string | undefined {
   return undefined;
 }
 
-export default function validateContactForm(values: ContactFormValues): ContactFormErrors {
+export default function parseContactForm(values: ContactFormValues): ParsedContactForm {
+  const data = { ...values };
   const errors: ContactFormErrors = {};
 
   for (const field of contactFormFields) {
-    const error = validateField(values[field].trim(), contactFormSchema[field]);
+    data[field] = values[field].trim();
+
+    const error = validateField(data[field], contactFormSchema[field]);
 
     if (error) {
       errors[field] = error;
     }
   }
 
-  return errors;
+  return { data, errors };
 }

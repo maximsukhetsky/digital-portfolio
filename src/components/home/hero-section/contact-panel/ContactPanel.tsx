@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { GITHUB_URL, LINKEDIN_URL } from "@/constants/common";
 import { arrowSVG, githubSVG, linkedinSVG } from "@/constants/icons";
 import styles from "./ContactPanel.module.scss";
 import classNames from "classnames/bind";
@@ -12,7 +13,7 @@ export default function ContactPanel() {
         Contact Me <span className={cn("icon")}>{arrowSVG}</span>
       </Link>
       <Link
-        href="https://www.linkedin.com/in/maxim-sukhetsky"
+        href={LINKEDIN_URL}
         target="_blank"
         rel="noopener noreferrer"
         className={cn("social-link")}
@@ -21,7 +22,7 @@ export default function ContactPanel() {
         {linkedinSVG}
       </Link>
       <Link
-        href="https://github.com/maximsukhetsky"
+        href={GITHUB_URL}
         target="_blank"
         rel="noopener noreferrer"
         className={cn("social-link")}

@@ -205,6 +205,20 @@ Keep pseudo-elements and state-specific styles after the base declarations. Do n
 - Keep `adjustFontFallback` on (the default) to limit CLS.
 - If a new font has no fallback metrics in Next (build warns `Failed to find font override values`), pick another font or define fallback overrides manually.
 
+### Constants
+
+- Constants shared across different modules or components (contact details, social links, etc.) live in `src/constants/common.ts`.
+- When you find a literal value duplicated in more than one module or component, move it to `common.ts` and import it from there instead of hardcoding it again.
+- Constants used by a single feature only live next to that feature's code (e.g. `src/lib/contact-form/constants.ts` for the contact form).
+- Name constants in `UPPER_SNAKE_CASE` (`CONTACT_EMAIL`, `GITHUB_URL`); icon constants keep their own convention (see Icons).
+
+### Contact Form
+
+- Non-React logic lives in `src/lib/contact-form/` (types, constants, validation schema, parsing, spam check, the `sendContactEmail` Server Action); React code (the form, its hooks, the honeypot) lives in `src/components/home/contact-section/contact-form/`.
+- Data flow: `ContactForm` → `useContactForm` (client validation via `parseContactForm`) → `sendContactEmail` (server: `isSpam` → `parseContactForm` again → Resend) → `{ status }` → `useTemporaryStatus` shows the message for `STATUS_TIMEOUT`.
+- Spam protection: a hidden honeypot field plus a minimum fill time; spam gets a fake `success` and no email.
+- Sending requires `RESEND_API_KEY` (`.env.local` locally, project env vars on Vercel).
+
 ### Icons
 
 - SVG icons live in `src/constants/icons.tsx` as JSX element constants, not components: `export const arrowSVG = (<svg>...</svg>);`.

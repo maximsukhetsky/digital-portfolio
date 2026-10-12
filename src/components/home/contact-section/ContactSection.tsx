@@ -1,5 +1,6 @@
 import Link from "next/link";
 import classNames from "classnames/bind";
+import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/constants/common";
 import { githubSVG, linkedinSVG, phoneSVG, telegramSVG } from "@/constants/icons";
 import ContactForm from "./contact-form/ContactForm";
 import styles from "./ContactSection.module.scss";
@@ -12,7 +13,7 @@ export default function ContactSection() {
       <div className={cn("heading")}>
         <h2 className={cn("title")}>Let’s connect</h2>
         <p className={cn("subtitle")}>
-          Say hello at <Link href="mailto:suheckiymax@gmail.com" className={cn("link")}>suheckiymax@gmail.com</Link>
+          Say hello at <Link href={`mailto:${CONTACT_EMAIL}`} className={cn("link")}>{CONTACT_EMAIL}</Link>
         </p>
         <p className={cn("subtitle")}>
           For more info, here’s my <Link href="#" className={cn("link")}>resume</Link>
@@ -20,7 +21,7 @@ export default function ContactSection() {
       </div>
       <div className={cn("socials")}>
         <Link
-          href="https://www.linkedin.com/in/maxim-sukhetsky"
+          href={LINKEDIN_URL}
           target="_blank"
           rel="noopener noreferrer"
           className={cn("social-link")}
@@ -29,7 +30,7 @@ export default function ContactSection() {
           {linkedinSVG}
         </Link>
         <Link
-          href="https://github.com/maximsukhetsky"
+          href={GITHUB_URL}
           target="_blank"
           rel="noopener noreferrer"
           className={cn("social-link")}
