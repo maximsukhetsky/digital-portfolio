@@ -1,27 +1,6 @@
-export type ContactFormValues = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-};
+import type { ContactFormField, ContactFormValues, FieldRules } from "./types";
 
-export type ContactFormField = keyof ContactFormValues;
-
-type RuleWithValue<T> = {
-  value: T;
-  message: string;
-};
-
-export type FieldRules = {
-  required?: string;
-  minLength?: RuleWithValue<number>;
-  maxLength?: RuleWithValue<number>;
-  pattern?: RuleWithValue<RegExp>;
-};
-
-export type ContactFormErrors = Partial<Record<ContactFormField, string>>;
-
-const requiredRule = { required: "This field is required" }
+const requiredRule = { required: "This field is required" };
 
 export const contactFormSchema: Record<ContactFormField, FieldRules> = {
   name: {
@@ -47,3 +26,10 @@ export const contactFormSchema: Record<ContactFormField, FieldRules> = {
 };
 
 export const contactFormFields = Object.keys(contactFormSchema) as ContactFormField[];
+
+export const initialValues: ContactFormValues = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+};

@@ -8,20 +8,46 @@
   .form-field {
     padding-bottom: 24px;
 
-    &:last-of-type {
+    &:nth-last-child(1 of .form-field) {
       padding-bottom: 32px;
     }
   }
 
-  .submit-button {
-    padding: 19px 40px;
+  .control {
+    position: relative;
 
-    font-family: v.$manrope-font;
-    @include t.text(16px, 1, 700);
-    text-transform: uppercase;
+    .submit-button {
+      padding: 19px 40px;
 
-    color: #0A0A0A;
-    background-color: #D3E97A;
-    border-radius: 50px;
+      font-family: v.$manrope-font;
+      @include t.text(16px, 1, 700);
+      text-transform: uppercase;
+
+      color: #0A0A0A;
+      background-color: #D3E97A;
+      border-radius: 50px;
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+
+    .status {
+      position: absolute;
+      top: 100%;
+      left: 0;
+
+      padding-top: 8px;
+
+      font-family: v.$manrope-font;
+      @include t.text(14px, 1.5);
+
+      color: #D3E97A;
+
+      &--error {
+        color: #FF5A5A;
+      }
+    }
   }
 }
