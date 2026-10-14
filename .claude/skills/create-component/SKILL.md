@@ -1,6 +1,6 @@
 ---
 name: create-component
-description: Створює компонент для Next.js (App Router) з SCSS-модулем. Аргументи - директорія компонента, назва, тип (server|client)
+description: Creates a Next.js (App Router) component with an SCSS module. Arguments - component directory, name, type (server|client)
 argument-hint: <directory> <ComponentName> [server|client]
 disable-model-invocation: true
 allowed-tools: Read, Write, Glob
@@ -8,14 +8,14 @@ allowed-tools: Read, Write, Glob
 
 ## Create component
 
-Створи компонент `$1` у директорії `$0`. Тип компонента: `$2` (якщо не вказано — server).
+Create the component `$1` in the directory `$0`. Component type: `$2` (server if not specified).
 
-### Перед створенням
-- Назва має бути в PascalCase. Якщо ні — перетвори й повідом.
-- Директорія має бути в kebab-case (`site-header/site-nav`). Якщо ні — перетвори й повідом.
-- Якщо `$0/$1.tsx` вже існує — нічого не створюй, зупинись і перепитай.
+### Before creating
+- The name must be in PascalCase. If it isn't, convert it and say so.
+- The directory must be in kebab-case (`site-header/site-nav`). If it isn't, convert it and say so.
+- If `$0/$1.tsx` already exists, create nothing, stop and ask.
 
-### Структура
+### Structure
 
 ```
 $0/
@@ -23,18 +23,18 @@ $0/
 └── $1.module.scss
 ```
 
-Не створюй `index.ts`.
+Do not create an `index.ts`.
 
-### Правила
-- Компонент створюється без пропсів. Коли пропси знадобляться — додай `type $1Props = { ... }` (через `type`, не `interface`) і деструктуризуй їх у сигнатурі.
-- Стилі тільки через SCSS-модуль поруч: `import styles from "./$1.module.scss"`.
-- Класи — через `const cn = classNames.bind(styles)`.
-- Кореневий клас — назва компонента в kebab-case (`ContactForm` → `contact-form`).
-- **client**: першим рядком `"use client";`. Хуки й обробники подій дозволені.
-- **server**: без `"use client"`, без хуків і обробників подій. Може бути `async`, якщо потрібні дані.
-- Дотримуйся конвенцій з CLAUDE.md (порядок пропсів, `import type`, подвійні лапки, 2 пробіли).
+### Rules
+- The component is created without props. When props are needed, add `type $1Props = { ... }` (use `type`, not `interface`) and destructure them in the signature.
+- Styles only through the adjacent SCSS module: `import styles from "./$1.module.scss"`.
+- Classes through `const cn = classNames.bind(styles)`.
+- The root class is the component name in kebab-case (`ContactForm` → `contact-form`).
+- **client**: `"use client";` as the first line. Hooks and event handlers are allowed.
+- **server**: no `"use client"`, no hooks and no event handlers. May be `async` if it needs data.
+- Follow the conventions in CLAUDE.md (props order, `import type`, double quotes, 2-space indentation).
 
-### Шаблон
+### Template
 
 ```tsx
 import classNames from "classnames/bind";
@@ -52,4 +52,4 @@ export default function $1() {
 }
 ```
 
-Після створення коротко виведи список створених файлів.
+After creating, briefly list the created files.
