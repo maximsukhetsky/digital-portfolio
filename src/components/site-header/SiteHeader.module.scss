@@ -21,14 +21,14 @@ $logo-length: 11;
 
   min-height: 64px;
 
-  background-color: #0A0A0A;
+  background-color: v.$color-black;
 
   .logo {
     font-family: v.$bebas-neue-font;
     @include t.text(28px, 1);
     letter-spacing: -0.28px;
 
-    color: #C7C7C7;
+    color: v.$color-offwhite;
 
     .char {
       position: relative;

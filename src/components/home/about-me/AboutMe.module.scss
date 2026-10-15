@@ -5,7 +5,7 @@
   padding-top: 64px;
   padding-bottom: 64px;
 
-  border-bottom: 1px solid #484848;
+  border-bottom: 1px solid v.$color-dark-gray;
 
   .title {
     padding-bottom: 12px;
@@ -14,7 +14,7 @@
     @include t.text(43px, 1);
     letter-spacing: -0.86px;
 
-    color: #FFF;
+    color: v.$color-white;
   }
 
   .description {
@@ -23,7 +23,7 @@
     font-family: v.$manrope-font;
     @include t.text(16px, 1.6);
 
-    color: #C7C7C7;
+    color: v.$color-offwhite;
 
     &:last-of-type {
       padding-bottom: 24px;

@@ -1,9 +1,10 @@
 @use "./reset";
+@use "./variables" as v;
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0A0A0A;
+  background-color: v.$color-black;
 }
 
 .wrapper {

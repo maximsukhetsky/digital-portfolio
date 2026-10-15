@@ -7,7 +7,7 @@
   @include t.text(20px, 1.5, 500);
   letter-spacing: -0.6px;
 
-  color: #C7C7C7;
+  color: v.$color-offwhite;
   opacity: 0;
 
   transition: opacity 0.15s ease, translate 0.15s ease;

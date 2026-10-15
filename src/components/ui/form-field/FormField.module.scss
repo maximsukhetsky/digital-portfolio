@@ -9,7 +9,7 @@
   font-family: v.$manrope-font;
   @include t.text(12px, 1);
 
-  color: #FF5A5A;
+  color: v.$color-error;
 
   animation: error-appear 0.2s ease;
 

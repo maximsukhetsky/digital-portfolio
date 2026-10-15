@@ -9,5 +9,5 @@
   font-family: v.$manrope-font;
   @include t.text(16px, 1.6, 500);
 
-  color: #C7C7C7;
+  color: v.$color-offwhite;
 }

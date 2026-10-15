@@ -10,8 +10,8 @@
   font-family: v.$manrope-font;
   @include t.text(16px, 1.6);
 
-  color: #FFF;
-  background-color: #1A1A1A;
+  color: v.$color-white;
+  background-color: v.$color-surface;
   border: 1px solid transparent;
   border-radius: 4px;
 
@@ -20,15 +20,15 @@
   transition: 0.1s linear;
 
   &:focus-visible {
-    outline: 2px solid #D3E97A;
+    outline: 2px solid v.$color-primary;
     outline-offset: 2px;
   }
 
   &--error {
-    border-color: #FF5A5A;
+    border-color: v.$color-error;
 
     &:focus-visible {
-      outline-color: #FF5A5A;
+      outline-color: v.$color-error;
     }
   }
 

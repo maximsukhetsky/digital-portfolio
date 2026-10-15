@@ -17,23 +17,23 @@
       @include t.text(43px, 1);
       letter-spacing: -0.86px;
 
-      color: #FFF;
+      color: v.$color-white;
     }
 
     .subtitle {
       font-family: v.$manrope-font;
       @include t.text(16px, 1.6);
 
-      color: #C7C7C7;
+      color: v.$color-offwhite;
 
       &:first-of-type {
         padding-bottom: 8px;
       }
 
       .link {
-        color: #FFF;
+        color: v.$color-white;
 
-        border-bottom: 1px solid #D3E97A;
+        border-bottom: 1px solid v.$color-primary;
       }
     }
   }
@@ -48,7 +48,7 @@
       width: 32px;
       height: 32px;
 
-      color: #D3E97A;
+      color: v.$color-primary;
     }
   }
 
@@ -56,6 +56,6 @@
     font-family: v.$manrope-font;
     @include t.text(16px, 1.6, 500);
 
-    color: #C7C7C7;
+    color: v.$color-offwhite;
   }
 }
