@@ -2,8 +2,10 @@
 @use "@/styles/variables" as v;
 
 .contact {
+  display: grid;
+
   padding-top: 64px;
-  padding-bottom: 80px;
+  padding-bottom: 64px;
 
   .heading {
     padding-bottom: 64px;
@@ -48,5 +50,12 @@
 
       color: #D3E97A;
     }
+  }
+
+  .copyright {
+    font-family: v.$manrope-font;
+    @include t.text(16px, 1.6, 500);
+
+    color: #C7C7C7;
   }
 }
