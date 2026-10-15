@@ -1,6 +1,6 @@
 import Link from "next/link";
 import classNames from "classnames/bind";
-import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/constants/common";
+import { AUTHOR_NAME, CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/constants/common";
 import { githubSVG, linkedinSVG, phoneSVG, telegramSVG } from "@/constants/icons";
 import ContactForm from "./contact-form/ContactForm";
 import styles from "./ContactSection.module.scss";
@@ -56,6 +56,7 @@ export default function ContactSection() {
         </Link>
       </div>
       <ContactForm />
+      <p className={cn("copyright")}>©2026 {AUTHOR_NAME}</p>
     </section>
   );
 }
