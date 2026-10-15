@@ -1,3 +1,5 @@
+export const AUTHOR_NAME = "Maxim Sukhetsky";
+
 export const CONTACT_EMAIL = "suheckiymax@gmail.com";
 
 export const LINKEDIN_URL = "https://www.linkedin.com/in/maxim-sukhetsky";
