@@ -18,8 +18,8 @@
     @include t.text(14px, 1, 700);
     text-transform: uppercase;
 
-    color: #0A0A0A;
-    background-color: #D3E97A;
+    color: v.$color-black;
+    background-color: v.$color-primary;
     border-radius: 26px;
 
     .icon {
@@ -34,7 +34,7 @@
       width: 40px;
       height: 40px;
 
-      background-color: #0A0A0A;
+      background-color: v.$color-black;
       border-radius: 50px;
 
       & svg {
@@ -42,7 +42,7 @@
         height: 20px;
 
         & path {
-          fill: #FFF;
+          fill: v.$color-white;
         }
       }
     }
@@ -79,7 +79,7 @@
   .social-link {
     padding: 12px;
 
-    background-color: #222222;
+    background-color: v.$color-elevated;
     border-radius: 50px;
 
     & svg {
@@ -87,7 +87,7 @@
       height: 24px;
 
       & path {
-        fill: #D3E97A;
+        fill: v.$color-primary;
       }
     }
   }

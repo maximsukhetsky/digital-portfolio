@@ -11,7 +11,7 @@
 
     padding: 46px 32px 0;
 
-    background-color: #1A1A1A;
+    background-color: v.$color-surface;
     border-radius: 6px;
 
     .label {
@@ -25,8 +25,8 @@
       @include t.text(12px, 1.5, 500);
       letter-spacing: 0.12px;
 
-      color: #FFF;
-      background-color: #0A0A0A;
+      color: v.$color-white;
+      background-color: v.$color-black;
       border-radius: 16px;
     }
 
@@ -49,7 +49,7 @@
       font-family: v.$manrope-font;
       @include t.text(24px, 1.4, 500);
 
-      color: #FFF;
+      color: v.$color-white;
     }
 
     .description {
@@ -58,7 +58,7 @@
       font-family: v.$manrope-font;
       @include t.text(16px, 1.6);
 
-      color: #C7C7C7;
+      color: v.$color-offwhite;
     }
 
     .info {
@@ -71,11 +71,11 @@
         @include t.text(16px, 1.6, 500);
         text-transform: uppercase;
 
-        color: #FFF;
+        color: v.$color-white;
       }
 
       .details {
-        border-top: 1px solid #484848;
+        border-top: 1px solid v.$color-dark-gray;
 
         .row {
           display: flex;
@@ -83,7 +83,7 @@
 
           padding: 16px 0;
 
-          border-bottom: 1px solid #484848;
+          border-bottom: 1px solid v.$color-dark-gray;
 
           .caption,
           .value {
@@ -92,11 +92,11 @@
           }
 
           .caption {
-            color: #FFF;
+            color: v.$color-white;
           }
 
           .value {
-            color: #C7C7C7;
+            color: v.$color-offwhite;
           }
         }
       }

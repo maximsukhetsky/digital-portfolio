@@ -9,7 +9,7 @@
   padding-top: 40px;
   padding-bottom: 64px;
 
-  border-bottom: 1px solid #484848;
+  border-bottom: 1px solid v.$color-dark-gray;
 
   .intro {
     .title {
@@ -19,7 +19,7 @@
       @include t.text(57px, 1);
       text-transform: uppercase;
 
-      color: #FFF;
+      color: v.$color-white;
     }
 
     .description {
@@ -28,7 +28,7 @@
       font-family: v.$manrope-font;
       @include t.text(16px, 1.6);
 
-      color: #C7C7C7;
+      color: v.$color-offwhite;
     }
   }
 

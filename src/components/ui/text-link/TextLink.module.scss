@@ -12,8 +12,8 @@
   @include t.text(14px, 1.5, 700);
   text-transform: uppercase;
 
-  color: #D3E97A;
-  border-bottom: 2px solid #D3E97A;
+  color: v.$color-primary;
+  border-bottom: 2px solid v.$color-primary;
 
   .icon {
     width: 22px;

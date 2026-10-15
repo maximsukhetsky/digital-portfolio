@@ -6,7 +6,7 @@
   transition: 0.1s linear;
 
   &:focus-visible {
-    outline: 2px solid #D3E97A;
+    outline: 2px solid v.$color-primary;
     outline-offset: 2px;
   }
 }
