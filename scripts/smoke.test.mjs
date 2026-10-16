@@ -5,7 +5,7 @@ import { existsSync } from "node:fs";
 const BASE_URL = process.env.SMOKE_URL ?? "http://localhost:3000";
 const EXPECTED_TITLE = "Digital Portfolio | Maxim Sukhetsky";
 const PAGES = [
-  { path: "/work", title: "Work | Maxim Sukhetsky", file: "work.html" },
+  { path: "/experience", title: "Experience | Maxim Sukhetsky", file: "experience.html" },
   { path: "/about", title: "About | Maxim Sukhetsky", file: "about.html" },
   { path: "/contact", title: "Contact | Maxim Sukhetsky", file: "contact.html" },
 ];
