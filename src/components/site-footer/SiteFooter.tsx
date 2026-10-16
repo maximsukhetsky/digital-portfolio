@@ -3,13 +3,13 @@ import classNames from "classnames/bind";
 import { AUTHOR_NAME, CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/constants/common";
 import { githubSVG, linkedinSVG, phoneSVG, telegramSVG } from "@/constants/icons";
 import ContactForm from "./contact-form/ContactForm";
-import styles from "./ContactSection.module.scss";
+import styles from "./SiteFooter.module.scss";
 
 const cn = classNames.bind(styles);
 
-export default function ContactSection() {
+export default function SiteFooter() {
   return (
-    <section className={cn("contact", "wrapper")}>
+    <footer className={cn("site-footer", "wrapper")}>
       <div className={cn("heading")}>
         <h2 className={cn("title")}>Let’s connect</h2>
         <p className={cn("subtitle")}>
@@ -57,6 +57,6 @@ export default function ContactSection() {
       </div>
       <ContactForm />
       <p className={cn("copyright")}>©2026 {AUTHOR_NAME}</p>
-    </section>
+    </footer>
   );
 }

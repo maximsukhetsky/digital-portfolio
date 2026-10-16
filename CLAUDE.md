@@ -168,6 +168,7 @@ Keep pseudo-elements and state-specific styles after the base declarations. Do n
 ## Architecture
 
 - **App Router under `src/app/`.** The `@/*` path alias maps to `./src/*`.
+- **Pages live in the `src/app/(site)/` route group.** Its `template.tsx` adds `SiteFooter` (the contact section) to every page; it is a template, not a layout, so the footer remounts on navigation and the contact form state resets; the root layout only renders `SiteHeader`, so the default 404 has no footer. Create new pages inside `(site)/`.
 - **Route types are generated.** `LayoutProps<"/">` in `layout.tsx` is a global type from `.next/types/routes.d.ts`, pulled in by `next-env.d.ts`.
 - If `.next/` is missing (fresh clone or after cleanup), run `pnpm dev` or `pnpm build` once before `typecheck`.
 - `next-env.d.ts` is generated and gitignored; don't edit it.
@@ -214,7 +215,7 @@ Keep pseudo-elements and state-specific styles after the base declarations. Do n
 
 ### Contact Form
 
-- Non-React logic lives in `src/lib/contact-form/` (types, constants, validation schema, parsing, spam check, the `sendContactEmail` Server Action); React code (the form, its hooks, the honeypot) lives in `src/components/home/contact-section/contact-form/`.
+- Non-React logic lives in `src/lib/contact-form/` (types, constants, validation schema, parsing, spam check, the `sendContactEmail` Server Action); React code (the form, its hooks, the honeypot) lives in `src/components/site-footer/contact-form/`.
 - Data flow: `ContactForm` → `useContactForm` (client validation via `parseContactForm`) → `sendContactEmail` (server: `isSpam` → `parseContactForm` again → Resend) → `{ status }` → `useTemporaryStatus` shows the message for `STATUS_TIMEOUT`.
 - Spam protection: a hidden honeypot field plus a minimum fill time; spam gets a fake `success` and no email.
 - Sending requires `RESEND_API_KEY` (`.env.local` locally, project env vars on Vercel).

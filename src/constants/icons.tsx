@@ -57,3 +57,13 @@ export const phoneSVG = (
     />
   </svg>
 );
+
+export const downloadSVG = (
+  <svg width="100%" height="100%" viewBox="0 0 20 20" aria-hidden="true">
+    <path d="M10.0001 13.3333L13.3334 9.16658H10.8334V3.33325H9.16675V9.16658H6.66675L10.0001 13.3333Z" fill="currentColor" />
+    <path
+      d="M16.6667 15.0001H3.33341V9.16675H1.66675V15.0001C1.66675 15.9192 2.41425 16.6667 3.33341 16.6667H16.6667C17.5859 16.6667 18.3334 15.9192 18.3334 15.0001V9.16675H16.6667V15.0001Z"
+      fill="currentColor"
+    />
+  </svg>
+);
