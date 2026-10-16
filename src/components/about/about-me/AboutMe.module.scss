@@ -1,0 +1,50 @@
+@use "@/styles/typography" as t;
+@use "@/styles/variables" as v;
+
+.about-me {
+  padding-top: 40px;
+  padding-bottom: 80px;
+
+  .inner {
+    padding-bottom: 80px;
+
+    .title {
+      padding-bottom: 16px;
+
+      font-family: v.$bebas-neue-font;
+      @include t.text(57px, 1);
+      text-transform: uppercase;
+
+      color: v.$color-white;
+    }
+
+    .content {
+      .text {
+        padding-bottom: 40px;
+
+        .lead {
+          padding-bottom: 8px;
+
+          font-family: v.$manrope-font;
+          @include t.text(24px, 1.4, 500);
+
+          color: v.$color-white;
+        }
+
+        .description {
+          font-family: v.$manrope-font;
+          @include t.text(16px, 1.6);
+
+          color: v.$color-offwhite;
+        }
+      }
+    }
+  }
+
+  .photo {
+    width: 100%;
+    height: auto;
+
+    border-radius: 16px;
+  }
+}

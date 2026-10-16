@@ -1,7 +1,8 @@
 import Image from "next/image";
-import heroPhoto from "@/assets/images/hero-photo.webp";
+import portraitNeutral from "@/assets/images/portrait-neutral.webp";
 import { AUTHOR_NAME } from "@/constants/common";
-import ContactPanel from "./contact-panel/ContactPanel";
+import { arrowSVG } from "@/constants/icons";
+import ActionPanel from "@/components/ui/action-panel/ActionPanel";
 import styles from "./HeroSection.module.scss";
 import classNames from "classnames/bind";
 
@@ -15,9 +16,9 @@ export default function HeroSection() {
         <p className={cn("description")}>
           A Kyiv-based Frontend Engineer passionate about building scalable, accessible, and user-friendly web applications.
         </p>
-        <ContactPanel />
+        <ActionPanel label="Contact Me" href="/contact" icon={arrowSVG} />
       </div>
-      <Image src={heroPhoto} placeholder="blur" loading="eager" className={cn("photo")} alt={AUTHOR_NAME} />
+      <Image src={portraitNeutral} placeholder="blur" loading="eager" className={cn("photo")} alt={AUTHOR_NAME} />
     </section>
   );
 }
