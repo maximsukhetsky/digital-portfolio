@@ -16,7 +16,7 @@ export default function HeroSection() {
         <p className={cn("description")}>
           A Kyiv-based Frontend Engineer passionate about building scalable, accessible, and user-friendly web applications.
         </p>
-        <ActionPanel label="Contact Me" href="/contact" icon={arrowSVG} />
+        <ActionPanel label="Contact Me" href="/#contact" icon={arrowSVG} />
       </div>
       <Image src={portraitNeutral} placeholder="blur" loading="eager" className={cn("photo")} alt={AUTHOR_NAME} />
     </section>

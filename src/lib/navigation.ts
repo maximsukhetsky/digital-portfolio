@@ -8,5 +8,5 @@ export type NavItem = {
 export const NAV_ITEMS: readonly NavItem[] = [
   { href: "/experience", label: "Experience" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/education", label: "Education" },
 ];

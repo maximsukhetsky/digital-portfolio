@@ -1,0 +1,20 @@
+@use "@/styles/typography" as t;
+@use "@/styles/variables" as v;
+
+.courses {
+  padding-top: 64px;
+  padding-bottom: 64px;
+
+  border-bottom: 1px solid v.$color-dark-gray;
+
+  .title {
+    padding-bottom: 32px;
+
+    font-family: v.$bebas-neue-font;
+    @include t.text(43px, 1);
+    letter-spacing: -0.86px;
+    text-transform: uppercase;
+
+    color: v.$color-white;
+  }
+}
