@@ -7,7 +7,7 @@ const EXPECTED_TITLE = "Digital Portfolio | Maxim Sukhetsky";
 const PAGES = [
   { path: "/experience", title: "Experience | Maxim Sukhetsky", file: "experience.html" },
   { path: "/about", title: "About | Maxim Sukhetsky", file: "about.html" },
-  { path: "/contact", title: "Contact | Maxim Sukhetsky", file: "contact.html" },
+  { path: "/education", title: "Education | Maxim Sukhetsky", file: "education.html" },
 ];
 
 let home;

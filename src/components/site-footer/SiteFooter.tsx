@@ -9,7 +9,7 @@ const cn = classNames.bind(styles);
 
 export default function SiteFooter() {
   return (
-    <footer className={cn("site-footer", "wrapper")}>
+    <footer className={cn("site-footer", "wrapper")} id="contact">
       <div className={cn("heading")}>
         <h2 className={cn("title")}>Let’s connect</h2>
         <p className={cn("subtitle")}>

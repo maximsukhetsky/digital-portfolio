@@ -1,0 +1,37 @@
+@use "@/styles/typography" as t;
+@use "@/styles/variables" as v;
+
+.education-item {
+  width: 100%;
+  max-width: 600px;
+
+  &:not(:last-child) {
+    padding-bottom: 40px;
+  }
+
+  .degree {
+    padding-bottom: 4px;
+
+    font-family: v.$manrope-font;
+    @include t.text(18px, 1.3, 500);
+    letter-spacing: -0.18px;
+
+    color: v.$color-white;
+  }
+
+  .period {
+    padding-bottom: 4px;
+
+    font-family: v.$manrope-font;
+    @include t.text(16px, 1.6);
+
+    color: v.$color-offwhite;
+  }
+
+  .institution {
+    font-family: v.$manrope-font;
+    @include t.text(16px, 1.6, 600);
+
+    color: v.$color-primary;
+  }
+}
