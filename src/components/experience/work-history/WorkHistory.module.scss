@@ -1,0 +1,19 @@
+@use "@/styles/typography" as t;
+@use "@/styles/variables" as v;
+
+.work-history {
+  padding-top: 64px;
+  padding-bottom: 64px;
+
+  border-bottom: 1px solid v.$color-dark-gray;
+
+  .title {
+    padding-bottom: 32px;
+
+    font-family: v.$bebas-neue-font;
+    @include t.text(57px, 1);
+    text-transform: uppercase;
+
+    color: v.$color-white;
+  }
+}

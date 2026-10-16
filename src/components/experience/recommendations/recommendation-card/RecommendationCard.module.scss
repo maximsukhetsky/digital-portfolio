@@ -1,0 +1,71 @@
+@use "@/styles/typography" as t;
+@use "@/styles/variables" as v;
+
+.recommendation-card {
+  padding: 24px;
+
+  background-color: v.$color-surface;
+  border-radius: 16px;
+
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 16px;
+
+    .avatar {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+
+      width: 48px;
+      height: 48px;
+
+      font-family: v.$manrope-font;
+      @include t.text(16px, 1, 600);
+
+      color: v.$color-white;
+      background-color: v.$color-elevated;
+      border-radius: 50px;
+    }
+
+    .info {
+      .name {
+        font-family: v.$manrope-font;
+        @include t.text(18px, 1.3, 500);
+
+        color: v.$color-white;
+      }
+
+      .headline {
+        font-family: v.$manrope-font;
+        @include t.text(16px, 1.6);
+
+        color: v.$color-offwhite;
+      }
+
+      .meta {
+        font-family: v.$manrope-font;
+        @include t.text(14px, 1.6);
+
+        color: v.$color-offwhite;
+      }
+    }
+  }
+
+  .text {
+    font-family: v.$manrope-font;
+    @include t.text(16px, 1.6);
+
+    color: v.$color-offwhite;
+
+    .paragraph:not(:last-child) {
+      padding-bottom: 12px;
+    }
+  }
+}

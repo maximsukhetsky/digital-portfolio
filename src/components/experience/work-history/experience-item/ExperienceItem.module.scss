@@ -1,0 +1,74 @@
+@use "@/styles/typography" as t;
+@use "@/styles/variables" as v;
+
+.experience-item {
+  width: 100%;
+  max-width: 600px;
+
+  &:not(:last-child) {
+    padding-bottom: 40px;
+  }
+
+  .heading {
+    padding-bottom: 12px;
+
+    .role {
+      padding-bottom: 4px;
+
+      font-family: v.$manrope-font;
+      @include t.text(18px, 1.3, 500);
+      letter-spacing: -0.18px;
+
+      color: v.$color-white;
+    }
+
+    .period {
+      padding-bottom: 4px;
+
+      font-family: v.$manrope-font;
+      @include t.text(16px, 1.6);
+      white-space: nowrap;
+
+      color: v.$color-offwhite;
+    }
+
+    .company {
+      font-family: v.$manrope-font;
+      @include t.text(16px, 1.6, 600);
+
+      color: v.$color-primary;
+    }
+  }
+
+  .summary {
+    padding-bottom: 12px;
+
+    font-family: v.$manrope-font;
+    @include t.text(16px, 1.6);
+
+    color: v.$color-offwhite;
+  }
+
+  .achievements {
+    padding-left: 20px;
+
+    list-style: disc;
+
+    .achievement {
+      padding-bottom: 8px;
+
+      font-family: v.$manrope-font;
+      @include t.text(16px, 1.6);
+
+      color: v.$color-offwhite;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      &::marker {
+        color: v.$color-primary;
+      }
+    }
+  }
+}
