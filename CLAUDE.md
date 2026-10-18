@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Personal digital portfolio site (English content, `<html lang="en">`). Started from `create-next-app` and stripped down to a clean boilerplate: no demo assets, no `public/` directory, no favicon yet.
+Personal digital portfolio site (English content, `<html lang="en">`). Started from `create-next-app` and stripped down to a clean boilerplate: no demo assets, no `public/` directory. App icons live in `src/app/` as Next file conventions: `icon.svg` (source, "MS" monogram in Bebas Neue glyph outlines), `apple-icon.png` (180×180) and `favicon.ico` (32×32), both rendered from `icon.svg`.
 
 ## Tech Stack
 
