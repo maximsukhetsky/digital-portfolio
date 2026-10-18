@@ -8,6 +8,8 @@ $type-step: 0.09s;
 $caret-blinks: 3;
 // Number of characters in `<MAX.DEV />` (LOGO in SiteHeader.tsx).
 $logo-length: 11;
+// Vertical stretch of the `<` and `>` glyphs.
+$bracket-scale: 1.4;
 
 .header {
   position: sticky;
@@ -19,7 +21,7 @@ $logo-length: 11;
   justify-content: space-between;
   gap: 16px;
 
-  min-height: 64px;
+  min-height: 80px;
 
   background-color: v.$color-black;
 
@@ -86,6 +88,17 @@ $logo-length: 11;
           50% {
             opacity: 0;
           }
+        }
+      }
+
+      &--bracket {
+        display: inline-block;
+
+        scale: 1 $bracket-scale;
+
+        // The caret is scaled with the glyph; keep it at the text height.
+        &::after {
+          scale: 1 calc(1 / $bracket-scale);
         }
       }
 

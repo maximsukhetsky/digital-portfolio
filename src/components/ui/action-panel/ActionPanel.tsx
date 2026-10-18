@@ -27,7 +27,7 @@ export default function ActionPanel({ label, href, icon, download }: ActionPanel
           {ctaContent}
         </a>
       ) : (
-        <Link href={href} className={cn("cta")}>
+        <Link href={href} className={cn("cta", { "cta--anchor": href.includes("#") })}>
           {ctaContent}
         </Link>
       )}

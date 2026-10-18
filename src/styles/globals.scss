@@ -7,6 +7,22 @@ body {
   background-color: v.$color-black;
 }
 
+html {
+  // Keeps anchored sections below the sticky header (min-height: 80px).
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid v.$color-primary;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .wrapper {
   width: 100%;
   max-width: 1224px;

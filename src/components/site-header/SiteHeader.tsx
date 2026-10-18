@@ -6,10 +6,11 @@ import classNames from "classnames/bind";
 const cn = classNames.bind(styles);
 
 const LOGO = "<MAX.DEV />";
+const BRACKETS = ["<", ">"];
 
 export default function SiteHeader() {
   const logoChars = [...LOGO].map((char, index) => (
-    <span key={index} className={cn("char")}>{char}</span>
+    <span key={index} className={cn("char", { "char--bracket": BRACKETS.includes(char) })}>{char}</span>
   ));
 
   return (

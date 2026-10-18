@@ -1,7 +1,7 @@
 import Image from "next/image";
 import portraitNeutral from "@/assets/images/portrait-neutral.webp";
 import { AUTHOR_NAME } from "@/constants/common";
-import { arrowSVG } from "@/constants/icons";
+import { arrowDownSVG } from "@/constants/icons";
 import ActionPanel from "@/components/ui/action-panel/ActionPanel";
 import styles from "./HeroSection.module.scss";
 import classNames from "classnames/bind";
@@ -16,7 +16,7 @@ export default function HeroSection() {
         <p className={cn("description")}>
           A Kyiv-based Frontend Engineer passionate about building scalable, accessible, and user-friendly web applications.
         </p>
-        <ActionPanel label="Contact Me" href="/#contact" icon={arrowSVG} />
+        <ActionPanel label="Contact Me" href="/#contact" icon={arrowDownSVG} />
       </div>
       <Image src={portraitNeutral} placeholder="blur" loading="eager" className={cn("photo")} alt={AUTHOR_NAME} />
     </section>

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${bebasNeueFont.variable} ${interFont.variable} ${manropeFont.variable}`}>
+    <html lang="en" className={`${bebasNeueFont.variable} ${interFont.variable} ${manropeFont.variable}`} data-scroll-behavior="smooth">
       <body>
         <SiteHeader />
         {children}
