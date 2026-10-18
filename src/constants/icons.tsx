@@ -7,6 +7,15 @@ export const arrowSVG = (
   </svg>
 );
 
+export const arrowDownSVG = (
+  <svg width="100%" height="100%" viewBox="0 0 20 20" aria-hidden="true">
+    <path
+      d="M9.1667 2.3275L9.1667 14.4825L4.7558 10.0717L3.5775 11.25L10 17.6725L16.4225 11.25L15.2442 10.0717L10.8333 14.4825L10.8333 2.3275Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
 export const linkedinSVG = (
   <svg width="100%" height="100%" viewBox="0 0 24 24" aria-hidden="true">
     <path

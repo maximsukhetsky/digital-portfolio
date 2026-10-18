@@ -1,6 +1,6 @@
 import Link from "next/link";
 import classNames from "classnames/bind";
-import { AUTHOR_NAME, CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/constants/common";
+import {AUTHOR_NAME, CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL, RESUME_URL} from "@/constants/common";
 import { githubSVG, linkedinSVG, phoneSVG, telegramSVG } from "@/constants/icons";
 import ContactForm from "./contact-form/ContactForm";
 import styles from "./SiteFooter.module.scss";
@@ -16,7 +16,7 @@ export default function SiteFooter() {
           Say hello at <Link href={`mailto:${CONTACT_EMAIL}`} className={cn("link")}>{CONTACT_EMAIL}</Link>
         </p>
         <p className={cn("subtitle")}>
-          For more info, here’s my <Link href="#" className={cn("link")}>resume</Link>
+          For more info, here’s my <a download href={RESUME_URL} className={cn("link")}>resume</a>
         </p>
       </div>
       <div className={cn("socials")}>

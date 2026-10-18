@@ -47,6 +47,25 @@
       }
     }
 
+    &--anchor .icon svg {
+      animation: arrow-bounce 1.5s ease-in-out infinite;
+
+      @keyframes arrow-bounce {
+        0%,
+        100% {
+          translate: 0 0;
+        }
+
+        50% {
+          translate: 0 2.5px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
+    }
+
     @include bp.hover {
       .icon {
         transition: transform 0.3s ease;
@@ -60,8 +79,15 @@
         }
       }
 
-      &--download .icon svg {
-        transform: translateY(-6px);
+      &--download,
+      &--anchor {
+        .icon svg {
+          transform: translateY(-6px);
+        }
+      }
+
+      &--anchor .icon svg {
+        animation: none;
       }
 
       &:hover,
@@ -74,6 +100,18 @@
 
             transition-delay: 0.1s;
             transform: none;
+          }
+        }
+      }
+
+      &--anchor:hover,
+      &--anchor:focus-visible {
+        .icon svg {
+          // Starts once the reveal transition (0.1s delay + 0.3s) has finished.
+          animation: arrow-bounce 1.5s ease-in-out 0.4s infinite;
+
+          @media (prefers-reduced-motion: reduce) {
+            animation: none;
           }
         }
       }
