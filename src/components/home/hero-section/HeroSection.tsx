@@ -3,6 +3,7 @@ import portraitNeutral from "@/assets/images/portrait-neutral.webp";
 import { AUTHOR_NAME } from "@/constants/common";
 import { arrowDownSVG } from "@/constants/icons";
 import ActionPanel from "@/components/ui/action-panel/ActionPanel";
+import PageTitle from "@/components/ui/page-title/PageTitle";
 import styles from "./HeroSection.module.scss";
 import classNames from "classnames/bind";
 
@@ -12,7 +13,7 @@ export default function HeroSection() {
   return (
     <section className={cn("hero", "wrapper")}>
       <div className={cn("intro")}>
-        <h1 className={cn("title")}>Hi, I am <br /> {AUTHOR_NAME}.</h1>
+        <PageTitle lines={["Hi, I am", `${AUTHOR_NAME}.`]} className={cn("title")} />
         <p className={cn("description")}>
           A Kyiv-based Frontend Engineer passionate about building scalable, accessible, and user-friendly web applications.
         </p>

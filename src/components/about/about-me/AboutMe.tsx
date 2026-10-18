@@ -2,6 +2,7 @@ import Image from "next/image";
 import { AUTHOR_NAME, RESUME_URL } from "@/constants/common";
 import { downloadSVG } from "@/constants/icons";
 import ActionPanel from "@/components/ui/action-panel/ActionPanel";
+import PageTitle from "@/components/ui/page-title/PageTitle";
 import classNames from "classnames/bind";
 import styles from "./AboutMe.module.scss";
 import portraitSmiling from "@/assets/images/portrait-smiling.webp";
@@ -12,7 +13,7 @@ export default function AboutMe() {
   return (
     <section className={cn("about-me", "wrapper")}>
       <div className={cn('inner')}>
-          <h1 className={cn("title")}>About Me</h1>
+          <PageTitle lines={["About Me"]} className={cn("title")} />
           <div className={cn("content")}>
               <div className={cn("text")}>
                   <p className={cn("lead")}>Frontend Engineer who turns complex requirements into clear, maintainable, and fast interfaces.</p>
