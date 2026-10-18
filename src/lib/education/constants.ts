@@ -1,3 +1,5 @@
+import danItCertificate from "@/assets/images/education/DANIT_certificate.webp";
+import kneuDiploma from "@/assets/images/education/Kyiv_National_University_of_Economics_diploma.webp";
 import type { Course, EducationEntry } from "./types";
 
 export const EDUCATION: readonly EducationEntry[] = [
@@ -6,6 +8,9 @@ export const EDUCATION: readonly EducationEntry[] = [
     institution: "Kyiv National University of Economics",
     location: "Kyiv",
     period: "2018 — 2020",
+    diploma: {
+      image: kneuDiploma,
+    },
   },
   {
     degree: "Junior Specialist in Computer Science",
@@ -24,14 +29,12 @@ export const COURSES: readonly Course[] = [
   },
   {
     title: "Frontend Development Course",
-    provider: "Dan.IT",
+    provider: "DAN.IT",
     location: "Kyiv",
     period: "2020 — 2021",
     certificate: {
       url: "https://certificates.dan-it.com.ua/certificates/frontend/sukhetskyi-maksym",
-      image: "/education/DANIT_certificate.webp",
-      width: 1724,
-      height: 1110,
+      image: danItCertificate,
     },
   },
 ];

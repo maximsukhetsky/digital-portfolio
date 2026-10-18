@@ -1,0 +1,25 @@
+@use "@/styles/breakpoints" as bp;
+
+.document-image {
+  display: block;
+
+  margin-top: 16px;
+
+  transition: opacity 0.2s ease;
+
+  @include bp.hover {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .image {
+    display: block;
+
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+
+    border-radius: 4px;
+  }
+}

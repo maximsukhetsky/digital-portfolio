@@ -1,6 +1,6 @@
-import Image from "next/image";
 import classNames from "classnames/bind";
 import type { Course } from "@/lib/education/types";
+import DocumentImage from "@/components/education/document-image/DocumentImage";
 import styles from "./CourseCard.module.scss";
 
 const cn = classNames.bind(styles);
@@ -13,18 +13,7 @@ export default function CourseCard({ title, provider, location, period, certific
       <h3 className={cn("title")}>{title}</h3>
       <p className={cn("provider")}>{provider}</p>
       <p className={cn("meta")}>{location} · {period}</p>
-      {certificate && (
-        <a href={certificate.url} target="_blank" rel="noopener noreferrer" className={cn("certificate")}>
-          <Image
-            src={certificate.image}
-            width={certificate.width}
-            height={certificate.height}
-            sizes="(min-width: 648px) 600px, 100vw"
-            className={cn("image")}
-            alt={`${provider} certificate`}
-          />
-        </a>
-      )}
+      {certificate && <DocumentImage {...certificate} alt={`${provider} certificate`} />}
     </li>
   );
 }
