@@ -1,0 +1,25 @@
+// Starts together with the logo typing (SiteHeader.module.scss).
+$type-delay: 0.3s;
+$type-step: 0.04s;
+
+.page-title {
+  .line {
+    display: block;
+  }
+
+  &--typing .line .char {
+    // Zero duration: the character stays hidden through its delay, then appears at once.
+    animation: title-type 0s backwards;
+    animation-delay: calc(#{$type-delay} + var(--char-index) * #{$type-step});
+
+    @keyframes title-type {
+      from {
+        opacity: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+}
