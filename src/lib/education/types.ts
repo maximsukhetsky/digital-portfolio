@@ -1,15 +1,16 @@
+import type { StaticImageData } from "next/image";
+
 export type EducationEntry = {
   degree: string;
   institution: string;
   location: string;
   period: string;
+  diploma?: ScannedDocument;
 };
 
-export type Certificate = {
-  url: string;
-  image: string;
-  width: number;
-  height: number;
+export type ScannedDocument = {
+  image: StaticImageData;
+  url?: string;
 };
 
 export type Course = {
@@ -17,5 +18,5 @@ export type Course = {
   provider: string;
   location: string;
   period: string;
-  certificate?: Certificate;
+  certificate?: ScannedDocument;
 };
