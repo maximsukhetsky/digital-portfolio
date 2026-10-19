@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import SiteFooter from "@/components/site-footer/SiteFooter";
+import SiteFooter from "@/components/layout/site-footer/SiteFooter";
 
 type SiteTemplateProps = {
   children: ReactNode;

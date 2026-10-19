@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import type { Course } from "@/lib/education/types";
-import DocumentImage from "@/components/education/document-image/DocumentImage";
+import DocumentImage from "@/components/pages/education/document-image/DocumentImage";
 import styles from "./CourseCard.module.scss";
 
 const cn = classNames.bind(styles);

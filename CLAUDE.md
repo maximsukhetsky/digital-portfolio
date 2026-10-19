@@ -72,11 +72,15 @@ When several props have the same priority, keep their existing logical order rat
 
 ## Components
 
+- `src/components/` has three top-level groups; put every new component into one of them:
+  - `layout/` — site chrome shared by all pages and rendered from `(site)/layout.tsx` / `(site)/template.tsx` (`site-header/`, `site-footer/`).
+  - `pages/` — sections owned by a single page, one directory per route (`home/` for `/`, `about/`, `education/`, `experience/`, `not-found/`). A component shared only between sections of the same page sits at that page's level (e.g. `pages/education/document-image/`).
+  - `ui/` — reusable primitives with no page or business context (`button/`, `input/`, `text-link/`, ...).
 - Organize component files according to their logical ownership and hierarchy.
 - Nest child components inside the directory of the component they belong to.
 - For example, if `NavLink` is an internal part of `SiteNav`, and `SiteNav` is an internal part of `SiteHeader`, use the following structure:
-  `site-header/site-nav/SiteNav.tsx`
-  `site-header/site-nav/nav-link/NavLink.tsx`
+  `layout/site-header/site-nav/SiteNav.tsx`
+  `layout/site-header/site-nav/nav-link/NavLink.tsx`
 - Name component directories in kebab-case (`site-header/`, `nav-link/`); component files stay in PascalCase (`SiteHeader.tsx`).
 - Keep each component's styles next to its component file.
 - Do not nest components that are independent, reusable across unrelated components, or part of a shared component library.
@@ -168,7 +172,7 @@ Keep pseudo-elements and state-specific styles after the base declarations. Do n
 ## Architecture
 
 - **App Router under `src/app/`.** The `@/*` path alias maps to `./src/*`.
-- **Pages live in the `src/app/(site)/` route group.** Its `layout.tsx` renders `SiteHeader`; its `template.tsx` adds `SiteFooter` (the contact section) to every page; it is a template, not a layout, so the footer remounts on navigation and the contact form state resets. The root layout renders neither, so the 404 page (`src/app/not-found.tsx`, UI in `src/components/not-found/`) has no header and no footer. Create new pages inside `(site)/`.
+- **Pages live in the `src/app/(site)/` route group.** Its `layout.tsx` renders `SiteHeader`; its `template.tsx` adds `SiteFooter` (the contact section) to every page; it is a template, not a layout, so the footer remounts on navigation and the contact form state resets. The root layout renders neither, so the 404 page (`src/app/not-found.tsx`, UI in `src/components/pages/not-found/`) has no header and no footer. Create new pages inside `(site)/`.
 - **Route types are generated.** `LayoutProps<"/">` in `layout.tsx` is a global type from `.next/types/routes.d.ts`, pulled in by `next-env.d.ts`.
 - If `.next/` is missing (fresh clone or after cleanup), run `pnpm dev` or `pnpm build` once before `typecheck`.
 - `next-env.d.ts` is generated and gitignored; don't edit it.
@@ -218,7 +222,7 @@ Keep pseudo-elements and state-specific styles after the base declarations. Do n
 
 ### Contact Form
 
-- Non-React logic lives in `src/lib/contact-form/` (types, constants, validation schema, parsing, spam check, the `sendContactEmail` Server Action); React code (the form, its hooks, the honeypot) lives in `src/components/site-footer/contact-form/`.
+- Non-React logic lives in `src/lib/contact-form/` (types, constants, validation schema, parsing, spam check, the `sendContactEmail` Server Action); React code (the form, its hooks, the honeypot) lives in `src/components/layout/site-footer/contact-form/`.
 - Data flow: `ContactForm` → `useContactForm` (client validation via `parseContactForm`) → `sendContactEmail` (server: `isSpam` → `parseContactForm` again → Resend) → `{ status }` → `useTemporaryStatus` shows the message for `STATUS_TIMEOUT`.
 - Spam protection: a hidden honeypot field plus a minimum fill time; spam gets a fake `success` and no email.
 - Sending requires `RESEND_API_KEY` (`.env.local` locally, project env vars on Vercel).

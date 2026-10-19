@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import type { EducationEntry } from "@/lib/education/types";
-import DocumentImage from "@/components/education/document-image/DocumentImage";
+import DocumentImage from "@/components/pages/education/document-image/DocumentImage";
 import styles from "./EducationItem.module.scss";
 
 const cn = classNames.bind(styles);
