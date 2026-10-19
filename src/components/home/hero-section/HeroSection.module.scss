@@ -1,5 +1,5 @@
-@use "@/styles/typography" as t;
-@use "@/styles/variables" as v;
+@use "@/styles/mixins/typography" as t;
+@use "@/styles/tokens/variables" as v;
 
 .hero {
   display: flex;

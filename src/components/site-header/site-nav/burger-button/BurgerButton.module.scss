@@ -1,5 +1,5 @@
-@use "@/styles/breakpoints" as bp;
-@use "@/styles/variables" as v;
+@use "@/styles/mixins/breakpoints" as bp;
+@use "@/styles/tokens/variables" as v;
 
 .burger {
   position: relative;

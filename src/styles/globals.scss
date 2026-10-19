@@ -1,5 +1,5 @@
-@use "./reset";
-@use "./variables" as v;
+@use "./base/reset";
+@use "./tokens/variables" as v;
 
 body {
   -webkit-font-smoothing: antialiased;
