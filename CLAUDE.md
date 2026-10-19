@@ -275,6 +275,7 @@ pnpm run typecheck    # tsc --noEmit
 - Keep commits focused and avoid unrelated changes.
 - Do not add automated signatures to commit messages, including `Generated with Claude Code` or `Co-Authored-By`.
 - Use only a meaningful commit message following Conventional Commits.
+- After the PR is merged, switch to the `man` branch and pull (use `git pull`) the changes.
 
 ## Verification
 
