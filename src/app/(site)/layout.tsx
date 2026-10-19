@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import SiteHeader from "@/components/site-header/SiteHeader";
+import SiteHeader from "@/components/layout/site-header/SiteHeader";
 
 type SiteLayoutProps = {
   children: ReactNode;

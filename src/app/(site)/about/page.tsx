@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import AboutMe from "@/components/about/about-me/AboutMe";
-import Capabilities from "@/components/about/capabilities/Capabilities";
+import AboutMe from "@/components/pages/about/about-me/AboutMe";
+import Capabilities from "@/components/pages/about/capabilities/Capabilities";
 
 export const metadata: Metadata = {
   title: "About",

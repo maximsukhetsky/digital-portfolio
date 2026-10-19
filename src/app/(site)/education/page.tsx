@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import AcademicHistory from "@/components/education/academic-history/AcademicHistory";
-import Courses from "@/components/education/courses/Courses";
+import AcademicHistory from "@/components/pages/education/academic-history/AcademicHistory";
+import Courses from "@/components/pages/education/courses/Courses";
 
 export const metadata: Metadata = {
   title: "Education",
