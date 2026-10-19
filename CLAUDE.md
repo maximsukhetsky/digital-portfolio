@@ -168,7 +168,7 @@ Keep pseudo-elements and state-specific styles after the base declarations. Do n
 ## Architecture
 
 - **App Router under `src/app/`.** The `@/*` path alias maps to `./src/*`.
-- **Pages live in the `src/app/(site)/` route group.** Its `template.tsx` adds `SiteFooter` (the contact section) to every page; it is a template, not a layout, so the footer remounts on navigation and the contact form state resets; the root layout only renders `SiteHeader`, so the default 404 has no footer. Create new pages inside `(site)/`.
+- **Pages live in the `src/app/(site)/` route group.** Its `layout.tsx` renders `SiteHeader`; its `template.tsx` adds `SiteFooter` (the contact section) to every page; it is a template, not a layout, so the footer remounts on navigation and the contact form state resets. The root layout renders neither, so the 404 page (`src/app/not-found.tsx`, UI in `src/components/not-found/`) has no header and no footer. Create new pages inside `(site)/`.
 - **Route types are generated.** `LayoutProps<"/">` in `layout.tsx` is a global type from `.next/types/routes.d.ts`, pulled in by `next-env.d.ts`.
 - If `.next/` is missing (fresh clone or after cleanup), run `pnpm dev` or `pnpm build` once before `typecheck`.
 - `next-env.d.ts` is generated and gitignored; don't edit it.

@@ -1,0 +1,92 @@
+@use "@/styles/typography" as t;
+@use "@/styles/variables" as v;
+@use "@/styles/breakpoints" as bp;
+
+// Registered so the spotlight position can be animated and transitioned.
+@property --x {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 50%;
+}
+
+@property --y {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 50%;
+}
+
+.spotlight {
+  position: relative;
+
+  padding: 24px 32px;
+
+  user-select: none;
+  transition: --x 0.15s ease-out, --y 0.15s ease-out;
+  // Touch devices: the light wanders over the digits on its own.
+  animation: spotlight-roam 8s ease-in-out infinite alternate;
+
+  @keyframes spotlight-roam {
+    0% {
+      --x: 15%;
+      --y: 35%;
+    }
+
+    35% {
+      --x: 55%;
+      --y: 70%;
+    }
+
+    70% {
+      --x: 85%;
+      --y: 30%;
+    }
+
+    100% {
+      --x: 40%;
+      --y: 45%;
+    }
+  }
+
+  .digits {
+    display: block;
+
+    font-family: v.$bebas-neue-font;
+    @include t.text(160px, 1);
+
+    color: v.$color-elevated;
+
+    @include bp.from(tablet) {
+      @include t.text(240px, 1);
+    }
+
+    @include bp.from(desktop) {
+      @include t.text(320px, 1);
+    }
+
+    &--lit {
+      position: absolute;
+      inset: 0;
+
+      padding: inherit;
+
+      color: v.$color-primary;
+
+      mask-image: radial-gradient(circle 120px at var(--x) var(--y), #000 0%, transparent 100%);
+
+      @include bp.from(desktop) {
+        mask-image: radial-gradient(circle 180px at var(--x) var(--y), #000 0%, transparent 100%);
+      }
+    }
+  }
+
+  // Under the cursor the light follows the pointer (set in Spotlight.tsx) instead of wandering.
+  @include bp.hover {
+    &:hover {
+      animation: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
