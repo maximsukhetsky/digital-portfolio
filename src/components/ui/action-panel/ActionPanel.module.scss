@@ -1,6 +1,6 @@
-@use "@/styles/typography" as t;
-@use "@/styles/variables" as v;
-@use "@/styles/breakpoints" as bp;
+@use "@/styles/mixins/typography" as t;
+@use "@/styles/tokens/variables" as v;
+@use "@/styles/mixins/breakpoints" as bp;
 
 .action-panel {
   display: flex;

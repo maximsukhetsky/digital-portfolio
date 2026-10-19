@@ -1,5 +1,5 @@
-@use "@/styles/breakpoints" as bp;
-@use "@/styles/variables" as v;
+@use "@/styles/mixins/breakpoints" as bp;
+@use "@/styles/tokens/variables" as v;
 
 // Center of the burger button: wrapper padding (16px) + half the button (22px)
 // from the right, header padding-top (32px) + half the row height (16px) from the top.

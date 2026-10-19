@@ -86,17 +86,17 @@ When several props have the same priority, keep their existing logical order rat
 ### SCSS
 
 - Use `@use` or `@forward` for style imports, never `@import`.
-- Import the variables partial with the `v` namespace: `@use "@/styles/variables" as v;` (or `@use "./variables" as v;` inside `src/styles/`), then reference variables as `v.$manrope-font`.
+- Import the variables partial with the `v` namespace: `@use "@/styles/tokens/variables" as v;` (or `@use "./tokens/variables" as v;` in `globals.scss`), then reference variables as `v.$manrope-font`.
 - Set fonts only through the variables `v.$bebas-neue-font`, `v.$manrope-font` and `v.$inter-font`, never with font names or `var(--*-font)` directly.
 - For circles and fully rounded shapes always use `border-radius: 50px`, never `50%`.
-- Set text sizing through the typography mixin: `@use "@/styles/typography" as t;`, then `@include t.text($size, $line-height, $weight)` (last two optional). A `px` line-height is converted to a unitless ratio; a unitless one is output as is. The mixin does not set `font-family`.
+- Set text sizing through the typography mixin: `@use "@/styles/mixins/typography" as t;`, then `@include t.text($size, $line-height, $weight)` (last two optional). A `px` line-height is converted to a unitless ratio; a unitless one is output as is. The mixin does not set `font-family`.
 - Use the full property name. For example, use `background-color: #000` instead of `background: #000`.
 - Nest selectors to mirror the JSX block structure (e.g. `.heading { .title {} .subtitle {} }`), in markup order, so the SCSS shows how the layout is built. Don't flatten modules.
 - Name state classes as BEM modifiers of their block: `.nav--open`, `.input--error` (`&--open` in SCSS, `cn("nav", { "nav--open": isOpen })` in TSX), never a separate chained class like `.nav.open`.
 
 ### Responsive Design
 
-- Write styles mobile-first with `min-width` breakpoints only: `@use "@/styles/breakpoints" as bp;`.
+- Write styles mobile-first with `min-width` breakpoints only: `@use "@/styles/mixins/breakpoints" as bp;`.
 - Base styles target mobile (0–767px).
 - Use `@include bp.from(tablet) { ... }` for ≥ 768px.
 - Use `@include bp.from(desktop) { ... }` for ≥ 1024px.
@@ -177,20 +177,23 @@ Keep pseudo-elements and state-specific styles after the base declarations. Do n
 
 - Global styles live in `src/styles/`.
 - `layout.tsx` imports only `@/styles/globals.scss`.
-- The first line of `globals.scss` is `@use "./reset"` (the `src/styles/_reset.scss` partial).
+- The first line of `globals.scss` is `@use "./base/reset"` (the `src/styles/base/_reset.scss` partial).
 - Keep new global styles in `globals.scss`, after that `@use`.
 - `src/app/` holds routes only.
 
 ### Reset
 
 - The reset lives in `@layer reset`.
-- Every rule in `_reset.scss` sits inside that layer, so any unlayered style in `globals.scss` or SCSS modules overrides it regardless of import order or specificity.
+- Every rule in `base/_reset.scss` sits inside that layer, so any unlayered style in `globals.scss` or SCSS modules overrides it regardless of import order or specificity.
 
 ### SCSS Modules
 
 - Component styles live next to the component as `Component.module.scss` and are imported as `styles`.
-- Shared SCSS variables live in `src/styles/_variables.scss`.
-- Other shared partials (e.g. mixins) go in `src/styles/_*.scss` next to `globals.scss`.
+- Shared partials are grouped by role inside `src/styles/`:
+  - `tokens/` — variables only, no CSS output (`tokens/_variables.scss`).
+  - `mixins/` — mixins and functions only, no CSS output (`mixins/_breakpoints.scss`, `mixins/_typography.scss`).
+  - `base/` — partials that output global CSS (`base/_reset.scss`).
+- `globals.scss` stays in the root of `src/styles/` as the only entry point. Put each new partial in the matching folder and import it by its own path (no `_index.scss` barrels), so namespaces like `v`, `t`, `bp` stay explicit.
 - Create shared partials only when first needed.
 
 ### Fonts
@@ -201,7 +204,7 @@ Keep pseudo-elements and state-specific styles after the base declarations. Do n
 - Inter is used for navigation links (`--inter-font`, weight 500).
 - All fonts load the `latin` subset only, with `display: "swap"`.
 - `layout.tsx` puts all `.variable` classes on `<html>`, so the CSS variables are available from `:root` down.
-- `_variables.scss` wraps them as `$bebas-neue-font` / `$manrope-font` / `$inter-font` with a `sans-serif` fallback.
+- `tokens/_variables.scss` wraps them as `$bebas-neue-font` / `$manrope-font` / `$inter-font` with a `sans-serif` fallback.
 - Headings get their font explicitly in component modules; there is no global `h1`–`h6` font rule.
 - Keep `adjustFontFallback` on (the default) to limit CLS.
 - If a new font has no fallback metrics in Next (build warns `Failed to find font override values`), pick another font or define fallback overrides manually.
