@@ -11,9 +11,10 @@ const cn = classNames.bind(styles);
 type ActionPanelProps = {
   label: string;
   icon: ReactNode;
+  hideSocials?: boolean;
 } & ({ href: Route; download?: false } | { href: string; download: true });
 
-export default function ActionPanel({ label, href, icon, download }: ActionPanelProps) {
+export default function ActionPanel({ label, href, icon, download, hideSocials }: ActionPanelProps) {
   const ctaContent = (
     <>
       {label} <span className={cn("icon")}>{icon}</span>
@@ -31,24 +32,28 @@ export default function ActionPanel({ label, href, icon, download }: ActionPanel
           {ctaContent}
         </Link>
       )}
-      <Link
-        href={LINKEDIN_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={cn("social-link")}
-        aria-label="LinkedIn"
-      >
-        {linkedinSVG}
-      </Link>
-      <Link
-        href={GITHUB_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={cn("social-link")}
-        aria-label="GitHub"
-      >
-        {githubSVG}
-      </Link>
+      {!hideSocials && (
+        <>
+          <Link
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn("social-link")}
+            aria-label="LinkedIn"
+          >
+            {linkedinSVG}
+          </Link>
+          <Link
+            href={GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn("social-link")}
+            aria-label="GitHub"
+          >
+            {githubSVG}
+          </Link>
+        </>
+      )}
     </div>
   );
 }

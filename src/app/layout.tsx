@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { AUTHOR_NAME } from "@/constants/common";
-import SiteHeader from "@/components/site-header/SiteHeader";
 import { bebasNeueFont, interFont, manropeFont } from "@/lib/fonts";
 import "@/styles/globals.scss";
 
@@ -16,7 +15,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${bebasNeueFont.variable} ${interFont.variable} ${manropeFont.variable}`} data-scroll-behavior="smooth">
       <body>
-        <SiteHeader />
         {children}
       </body>
     </html>
