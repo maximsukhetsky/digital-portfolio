@@ -77,19 +77,19 @@ cp .env.example .env.local   # add your RESEND_API_KEY
 pnpm dev                     # http://localhost:3000
 ```
 
-| Command | Description |
-| --- | --- |
-| `pnpm dev` | Start the dev server |
-| `pnpm build` | Production build |
-| `pnpm start` | Serve the production build |
-| `pnpm run lint` | Run ESLint |
-| `pnpm run typecheck` | Run the TypeScript type check |
-| `pnpm run format` | Format all files with Prettier and sort imports |
-| `pnpm run format:check` | Check formatting without writing |
-| `pnpm run smoke` | Run smoke tests against a running server |
+| Command                 | Description                                     |
+| ----------------------- | ----------------------------------------------- |
+| `pnpm dev`              | Start the dev server                            |
+| `pnpm build`            | Production build                                |
+| `pnpm start`            | Serve the production build                      |
+| `pnpm run lint`         | Run ESLint                                      |
+| `pnpm run typecheck`    | Run the TypeScript type check                   |
+| `pnpm run format`       | Format all files with Prettier and sort imports |
+| `pnpm run format:check` | Check formatting without writing                |
+| `pnpm run smoke`        | Run smoke tests against a running server        |
 
 ### Environment variables
 
-| Variable | Description |
-| --- | --- |
+| Variable         | Description                                                                    |
+| ---------------- | ------------------------------------------------------------------------------ |
 | `RESEND_API_KEY` | API key for [Resend](https://resend.com), required to send contact form emails |

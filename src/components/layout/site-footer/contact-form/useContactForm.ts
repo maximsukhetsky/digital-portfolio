@@ -1,10 +1,14 @@
 import { useRef, useState, useTransition } from "react";
 import type { ChangeEvent, SubmitEvent } from "react";
 import parseContactForm from "@/lib/contact-form/parseContactForm";
-import sendContactEmail from "@/lib/contact-form/sendContactEmail";
 import { contactFormFields, contactFormSchema, initialValues } from "@/lib/contact-form/schema";
+import sendContactEmail from "@/lib/contact-form/sendContactEmail";
 import { createSpamCheck } from "@/lib/contact-form/spam";
-import type { ContactFormErrors, ContactFormField, ContactFormValues } from "@/lib/contact-form/types";
+import type {
+  ContactFormErrors,
+  ContactFormField,
+  ContactFormValues,
+} from "@/lib/contact-form/types";
 import useTemporaryStatus from "./useTemporaryStatus";
 
 type FieldElement = HTMLInputElement | HTMLTextAreaElement;

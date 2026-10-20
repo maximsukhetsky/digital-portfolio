@@ -1,6 +1,6 @@
-import { before, test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
+import { before, test } from "node:test";
 
 const BASE_URL = process.env.SMOKE_URL ?? "http://localhost:3000";
 const EXPECTED_TITLE = "Digital Portfolio | Maxim Sukhetsky";

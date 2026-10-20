@@ -78,7 +78,8 @@ $bracket-scale: 1.4;
       }
 
       &:last-child::after {
-        animation: logo-caret-blink 0.8s steps(1) $type-delay + ($logo-length - 1) * $type-step $caret-blinks;
+        animation: logo-caret-blink 0.8s steps(1) $type-delay + ($logo-length - 1) * $type-step
+          $caret-blinks;
 
         @keyframes logo-caret-blink {
           0% {

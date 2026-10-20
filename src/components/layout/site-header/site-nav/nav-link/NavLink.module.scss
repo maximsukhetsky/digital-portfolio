@@ -10,7 +10,9 @@
   color: v.$color-offwhite;
   opacity: 0;
 
-  transition: opacity 0.15s ease, translate 0.15s ease;
+  transition:
+    opacity 0.15s ease,
+    translate 0.15s ease;
   translate: 0 24px;
 
   &--open {

@@ -1,4 +1,4 @@
-import { Manrope, Bebas_Neue, Inter } from "next/font/google";
+import { Bebas_Neue, Inter, Manrope } from "next/font/google";
 
 export const bebasNeueFont = Bebas_Neue({
   weight: ["400"],

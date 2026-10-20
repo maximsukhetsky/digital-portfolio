@@ -115,60 +115,60 @@ When several props have the same priority, keep their existing logical order rat
 Group CSS/SCSS declarations by logical purpose. Prefer the following order when applicable:
 
 1. **Positioning**
-    - `position`
-    - `inset`
-    - `top`
-    - `right`
-    - `bottom`
-    - `left`
-    - `z-index`
+   - `position`
+   - `inset`
+   - `top`
+   - `right`
+   - `bottom`
+   - `left`
+   - `z-index`
 
 2. **Layout**
-    - `display`
-    - `flex-*`
-    - `grid-*`
-    - `align-*`
-    - `justify-*`
-    - `order`
-    - `gap`
-    - `overflow`
+   - `display`
+   - `flex-*`
+   - `grid-*`
+   - `align-*`
+   - `justify-*`
+   - `order`
+   - `gap`
+   - `overflow`
 
 3. **Dimensions and spacing**
-    - `width`
-    - `min-width`
-    - `max-width`
-    - `height`
-    - `min-height`
-    - `max-height`
-    - `margin`
-    - `padding`
+   - `width`
+   - `min-width`
+   - `max-width`
+   - `height`
+   - `min-height`
+   - `max-height`
+   - `margin`
+   - `padding`
 
 4. **Typography**
-    - `font-*`
-    - `line-height`
-    - `letter-spacing`
-    - `text-*`
-    - `white-space`
-    - `word-*`
+   - `font-*`
+   - `line-height`
+   - `letter-spacing`
+   - `text-*`
+   - `white-space`
+   - `word-*`
 
 5. **Visual styling**
-    - `color`
-    - `background-*`
-    - `border-*`
-    - `border-radius`
-    - `box-shadow`
-    - `opacity`
-    - `visibility`
+   - `color`
+   - `background-*`
+   - `border-*`
+   - `border-radius`
+   - `box-shadow`
+   - `opacity`
+   - `visibility`
 
 6. **Effects and interaction**
-    - `cursor`
-    - `pointer-events`
-    - `user-select`
-    - `appearance`
-    - `transition`
-    - `transform`, `translate`, `rotate`, `scale`
-    - `clip-path`
-    - `animation`
+   - `cursor`
+   - `pointer-events`
+   - `user-select`
+   - `appearance`
+   - `transition`
+   - `transform`, `translate`, `rotate`, `scale`
+   - `clip-path`
+   - `animation`
 
 Keep pseudo-elements and state-specific styles after the base declarations. Do not force declarations into a group when doing so would reduce readability.
 

@@ -1,9 +1,9 @@
 import Image from "next/image";
-import styles from "./ProjectCard.module.scss";
 import classNames from "classnames/bind";
 import TextLink from "@/components/ui/text-link/TextLink";
 import { arrowSVG, githubSVG } from "@/constants/icons";
 import type { Project } from "@/lib/projects";
+import styles from "./ProjectCard.module.scss";
 
 const cn = classNames.bind(styles);
 
@@ -15,8 +15,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className={cn("project-card")}>
       <div className={cn("preview")}>
-        <p className={cn("label")}>{project.isCommercial ? "Commercial Project" : "Personal Project"}</p>
-        <Image src={project.image} placeholder="blur" className={cn("photo")} alt={project.imageAlt} />
+        <p className={cn("label")}>
+          {project.isCommercial ? "Commercial Project" : "Personal Project"}
+        </p>
+        <Image
+          src={project.image}
+          placeholder="blur"
+          className={cn("photo")}
+          alt={project.imageAlt}
+        />
       </div>
       <div className={cn("content")}>
         <h3 className={cn("title")}>{project.title}</h3>

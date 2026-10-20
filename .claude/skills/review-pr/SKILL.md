@@ -7,6 +7,7 @@ allowed-tools: Bash, Read, Grep.
 ## Code Review
 
 ### 1. Gather context
+
 - `git diff HEAD~1 --stat` — list of files
 - `git diff HEAD~1` — detailed diff
 

@@ -14,10 +14,8 @@ type BaseProject = {
   liveUrl: ExternalUrl;
 };
 
-export type Project = BaseProject & (
-  | { isCommercial: true }
-  | { isCommercial: false; githubUrl: ExternalUrl }
-);
+export type Project = BaseProject &
+  ({ isCommercial: true } | { isCommercial: false; githubUrl: ExternalUrl });
 
 export const PROJECTS: readonly Project[] = [
   {

@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 import type { Route } from "next";
 import Link from "next/link";
+import classNames from "classnames/bind";
 import { GITHUB_URL, LINKEDIN_URL } from "@/constants/common";
 import { githubSVG, linkedinSVG } from "@/constants/icons";
 import styles from "./ActionPanel.module.scss";
-import classNames from "classnames/bind";
 
 const cn = classNames.bind(styles);
 
@@ -14,7 +14,13 @@ type ActionPanelProps = {
   hideSocials?: boolean;
 } & ({ href: Route; download?: false } | { href: string; download: true });
 
-export default function ActionPanel({ label, href, icon, download, hideSocials }: ActionPanelProps) {
+export default function ActionPanel({
+  label,
+  href,
+  icon,
+  download,
+  hideSocials,
+}: ActionPanelProps) {
   const ctaContent = (
     <>
       {label} <span className={cn("icon")}>{icon}</span>

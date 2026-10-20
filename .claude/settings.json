@@ -17,24 +17,29 @@
       "Bash(rm -rf:*)",
       "Bash(pnpm add:*)"
     ],
-    "ask": [
-      "Bash(git push:*)",
-      "WebFetch"
-    ]
+    "ask": ["Bash(git push:*)", "WebFetch"]
   },
   "hooks": {
-    "PostToolUse": [{
-      "matcher": "Edit|Write",
-      "hooks": [{
-        "type": "command",
-        "command": "cd \"$CLAUDE_PROJECT_DIR\" && OUT=$(pnpm run typecheck 2>&1) || { echo \"TypeScript errors, fix them:\" >&2; echo \"$OUT\" | tail -30 >&2; exit 2; }"
-      }]
-    }],
-    "SessionStart": [{
-      "hooks": [{
-        "type": "command",
-        "command": "cd \"$CLAUDE_PROJECT_DIR\" && echo '=== Git Status ===' && git status -sb && echo '=== Recent commits ===' && git log --oneline -5"
-      }]
-    }]
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"$CLAUDE_PROJECT_DIR\" && OUT=$(pnpm run typecheck 2>&1) || { echo \"TypeScript errors, fix them:\" >&2; echo \"$OUT\" | tail -30 >&2; exit 2; }"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"$CLAUDE_PROJECT_DIR\" && echo '=== Git Status ===' && git status -sb && echo '=== Recent commits ===' && git log --oneline -5"
+          }
+        ]
+      }
+    ]
   }
 }

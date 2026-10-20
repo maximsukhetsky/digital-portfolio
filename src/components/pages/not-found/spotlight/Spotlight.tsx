@@ -1,8 +1,8 @@
 "use client";
 
 import type { PointerEvent } from "react";
-import styles from "./Spotlight.module.scss";
 import classNames from "classnames/bind";
+import styles from "./Spotlight.module.scss";
 
 const cn = classNames.bind(styles);
 

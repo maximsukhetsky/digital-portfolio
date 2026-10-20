@@ -1,5 +1,5 @@
-import type { Route } from "next";
 import type { MouseEventHandler, ReactNode } from "react";
+import type { Route } from "next";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import classNames from "classnames/bind";

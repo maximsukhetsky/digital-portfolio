@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
-import Label from "@/components/ui/label/Label";
 import Input from "@/components/ui/input/Input";
+import Label from "@/components/ui/label/Label";
 import { HONEYPOT_FIELD } from "@/lib/contact-form/constants";
 import styles from "./Honeypot.module.scss";
 

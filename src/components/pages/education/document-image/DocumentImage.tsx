@@ -11,7 +11,12 @@ type DocumentImageProps = ScannedDocument & {
 
 export default function DocumentImage({ image, url, alt }: DocumentImageProps) {
   return (
-    <a href={url ?? image.src} target="_blank" rel="noopener noreferrer" className={cn("document-image")}>
+    <a
+      href={url ?? image.src}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={cn("document-image")}
+    >
       <Image
         src={image}
         sizes="(min-width: 648px) 600px, 100vw"

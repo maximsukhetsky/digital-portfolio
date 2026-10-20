@@ -19,10 +19,10 @@
 - New partial `src/styles/_breakpoints.scss`, imported with the `bp` namespace: `@use "@/styles/breakpoints" as bp;`.
 - Mobile-first, `min-width` only:
 
-| Name | Range | How to target |
-|---|---|---|
-| `mobile` | 0–767px | Base styles, no media query |
-| `tablet` | ≥ 768px | `@include bp.from(tablet) { ... }` |
+| Name      | Range    | How to target                       |
+| --------- | -------- | ----------------------------------- |
+| `mobile`  | 0–767px  | Base styles, no media query         |
+| `tablet`  | ≥ 768px  | `@include bp.from(tablet) { ... }`  |
 | `desktop` | ≥ 1024px | `@include bp.from(desktop) { ... }` |
 
 - An unknown name fails the build with `@error`. A `max-width` mixin is intentionally not provided.
@@ -50,16 +50,16 @@ $breakpoints: (
 
 ## 3. File structure (`src/components/site-header/`)
 
-| File | Kind | Responsibility |
-|---|---|---|
-| `SiteHeader.tsx` | Server | Logo and `<SiteNav />` |
-| `SiteHeader.module.scss` | Styles | `.header` and `.logo` only; `.nav` moves to `SiteNav.module.scss`, `.link` to `NavLink.module.scss` |
-| `site-nav/SiteNav.tsx` | `"use client"` | Menu state; renders `BurgerButton` and the single `<nav>` with `NavLink`s |
-| `site-nav/SiteNav.module.scss` | Styles | Mobile panel, inline layout from `tablet`, scroll lock |
-| `site-nav/burger-button/BurgerButton.tsx` | Component | Wraps `ui/button/Button`; two-line icon (`<span className={cn("line")} />` ×2); receives `isOpen` and `onClick` |
-| `site-nav/burger-button/BurgerButton.module.scss` | Styles | Lines, open/close animation, hidden from `tablet` |
-| `site-nav/nav-link/NavLink.tsx` | Client, no directive | Takes `isMenuOpen` (adds its own `open` class) and an optional `onClick` |
-| `site-nav/nav-link/NavLink.module.scss` | Styles | Link typography, staggered reveal on `.link.open`, reset from `tablet` |
+| File                                              | Kind                 | Responsibility                                                                                                  |
+| ------------------------------------------------- | -------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `SiteHeader.tsx`                                  | Server               | Logo and `<SiteNav />`                                                                                          |
+| `SiteHeader.module.scss`                          | Styles               | `.header` and `.logo` only; `.nav` moves to `SiteNav.module.scss`, `.link` to `NavLink.module.scss`             |
+| `site-nav/SiteNav.tsx`                            | `"use client"`       | Menu state; renders `BurgerButton` and the single `<nav>` with `NavLink`s                                       |
+| `site-nav/SiteNav.module.scss`                    | Styles               | Mobile panel, inline layout from `tablet`, scroll lock                                                          |
+| `site-nav/burger-button/BurgerButton.tsx`         | Component            | Wraps `ui/button/Button`; two-line icon (`<span className={cn("line")} />` ×2); receives `isOpen` and `onClick` |
+| `site-nav/burger-button/BurgerButton.module.scss` | Styles               | Lines, open/close animation, hidden from `tablet`                                                               |
+| `site-nav/nav-link/NavLink.tsx`                   | Client, no directive | Takes `isMenuOpen` (adds its own `open` class) and an optional `onClick`                                        |
+| `site-nav/nav-link/NavLink.module.scss`           | Styles               | Link typography, staggered reveal on `.link.open`, reset from `tablet`                                          |
 
 `SiteNav.tsx` is the only `"use client"` entry. `NavLink` and `BurgerButton` take function props (`onClick`), so they must not have the directive: an entry file's props must be serializable (TS71007). They become client code because only `SiteNav` imports them.
 
@@ -104,11 +104,11 @@ Two lines. No SVG, no libraries, only CSS transitions driven by the `.open` clas
   height: 2px;
   margin-top: -1px;
   border-radius: 2px;
-  background: #C7C7C7;
+  background: #c7c7c7;
   transition:
     translate 0.2s ease 0.3s,
     width 0.2s ease 0.3s,
-    rotate 0.3s cubic-bezier(.68, -.6, .32, 1.6) 0s;
+    rotate 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6) 0s;
 
   &:nth-child(1) {
     translate: 0 -4px;
@@ -144,7 +144,6 @@ Two lines. No SVG, no libraries, only CSS transitions driven by the `.open` clas
 - The button's hit area is at least 44×44px, with the lines centered inside it.
 - Use the individual `translate` / `rotate` properties, not `transform`, so each one can have its own delay.
 
-
 ## 6. Mobile panel animation
 
 All motion lasts **500ms**, the same as the icon, so the button and the panel move as one gesture. CSS transitions only, driven by `.nav.open`.
@@ -167,16 +166,16 @@ $origin: calc(100% - 38px) 48px;
   z-index: 2;
   visibility: hidden;
   clip-path: circle(0 at $origin);
-  background: #0A0A0A;
+  background: #0a0a0a;
   transition:
-    clip-path 0.35s cubic-bezier(.77, 0, .18, 1) 0.15s,
+    clip-path 0.35s cubic-bezier(0.77, 0, 0.18, 1) 0.15s,
     visibility 0s linear 0.5s;
 
   &.open {
     visibility: visible;
     clip-path: circle(150vmax at $origin);
     transition:
-      clip-path 0.5s cubic-bezier(.77, 0, .18, 1),
+      clip-path 0.5s cubic-bezier(0.77, 0, 0.18, 1),
       visibility 0s;
   }
 }
@@ -186,7 +185,9 @@ $origin: calc(100% - 38px) 48px;
   opacity: 0;
 
   translate: 0 24px;
-  transition: opacity 0.15s ease, translate 0.15s ease;
+  transition:
+    opacity 0.15s ease,
+    translate 0.15s ease;
 
   &.open {
     opacity: 1;
@@ -230,11 +231,11 @@ While the menu is open, the page underneath does not scroll. This is CSS only, i
 
 Approved scope: only the attributes without which a screen-reader user cannot use the menu.
 
-| What | Where | Why it is critical |
-|---|---|---|
-| `aria-label={isOpen ? "Close menu" : "Open menu"}` | Burger button | The button contains only two empty decorative `<span>`s. Without a name, a screen reader announces just "button", and the user cannot tell what it does. |
-| `aria-expanded={isOpen}` | Burger button | Announces whether the menu is open or closed. Without it, the user does not know that pressing the button changed anything. |
-| `visibility: hidden` on the closed panel | CSS, `.nav` | Not an attribute. It removes the hidden links from the accessibility tree and the Tab order. `clip-path` alone only hides them visually, so a screen reader would still read invisible links. |
+| What                                               | Where         | Why it is critical                                                                                                                                                                            |
+| -------------------------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `aria-label={isOpen ? "Close menu" : "Open menu"}` | Burger button | The button contains only two empty decorative `<span>`s. Without a name, a screen reader announces just "button", and the user cannot tell what it does.                                      |
+| `aria-expanded={isOpen}`                           | Burger button | Announces whether the menu is open or closed. Without it, the user does not know that pressing the button changed anything.                                                                   |
+| `visibility: hidden` on the closed panel           | CSS, `.nav`   | Not an attribute. It removes the hidden links from the accessibility tree and the Tab order. `clip-path` alone only hides them visually, so a screen reader would still read invisible links. |
 
 Intentionally not added:
 

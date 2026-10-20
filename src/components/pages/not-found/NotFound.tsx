@@ -1,8 +1,8 @@
-import { arrowSVG } from "@/constants/icons";
+import classNames from "classnames/bind";
 import ActionPanel from "@/components/ui/action-panel/ActionPanel";
+import { arrowSVG } from "@/constants/icons";
 import Spotlight from "./spotlight/Spotlight";
 import styles from "./NotFound.module.scss";
-import classNames from "classnames/bind";
 
 const cn = classNames.bind(styles);
 

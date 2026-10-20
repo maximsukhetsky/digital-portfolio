@@ -21,7 +21,9 @@
   padding: 24px 32px;
 
   user-select: none;
-  transition: --x 0.15s ease-out, --y 0.15s ease-out;
+  transition:
+    --x 0.15s ease-out,
+    --y 0.15s ease-out;
   // Touch devices: the light wanders over the digits on its own.
   animation: spotlight-roam 8s ease-in-out infinite alternate;
 
