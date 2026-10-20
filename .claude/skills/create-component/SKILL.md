@@ -11,6 +11,7 @@ allowed-tools: Read, Write, Glob
 Create the component `$1` in the directory `$0`. Component type: `$2` (server if not specified).
 
 ### Before creating
+
 - The name must be in PascalCase. If it isn't, convert it and say so.
 - The directory must be in kebab-case (`site-header/site-nav`). If it isn't, convert it and say so.
 - If `$0/$1.tsx` already exists, create nothing, stop and ask.
@@ -26,6 +27,7 @@ $0/
 Do not create an `index.ts`.
 
 ### Rules
+
 - The component is created without props. When props are needed, add `type $1Props = { ... }` (use `type`, not `interface`) and destructure them in the signature.
 - Styles only through the adjacent SCSS module: `import styles from "./$1.module.scss"`.
 - Classes through `const cn = classNames.bind(styles)`.
@@ -48,7 +50,7 @@ export default function $1() {
 ```
 
 ```scss
-.<kebab-name> {
+.<kebab-name > {
 }
 ```
 

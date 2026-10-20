@@ -13,6 +13,7 @@ Personal digital portfolio site (English content, `<html lang="en">`). Started f
 - TypeScript
 - SCSS (Sass) with CSS Modules
 - ESLint
+- Prettier (with `@ianvs/prettier-plugin-sort-imports`)
 
 ## Development Guidelines
 
@@ -39,8 +40,10 @@ Personal digital portfolio site (English content, `<html lang="en">`). Started f
 - Do not use deprecated APIs or types (e.g. `FormEvent`, `forwardRef`); check `@deprecated` notes in type definitions.
 - Convert values to boolean with `!!value`, not `Boolean(value)`.
 
-### Imports
+### Formatting and Imports
 
+- Prettier owns formatting (`.prettierrc.json`, `printWidth: 100`); don't hand-format against it.
+- Import order is enforced by the Prettier plugin, in one block without blank lines: `react` → `next` → third-party packages → `@/` aliases → relative imports → style imports last.
 - Use named type imports from React with `import type`, such as `ReactNode` instead of `React.ReactNode`. Apply this convention consistently in new code.
 
 ### Event Handler Naming
@@ -112,60 +115,60 @@ When several props have the same priority, keep their existing logical order rat
 Group CSS/SCSS declarations by logical purpose. Prefer the following order when applicable:
 
 1. **Positioning**
-    - `position`
-    - `inset`
-    - `top`
-    - `right`
-    - `bottom`
-    - `left`
-    - `z-index`
+   - `position`
+   - `inset`
+   - `top`
+   - `right`
+   - `bottom`
+   - `left`
+   - `z-index`
 
 2. **Layout**
-    - `display`
-    - `flex-*`
-    - `grid-*`
-    - `align-*`
-    - `justify-*`
-    - `order`
-    - `gap`
-    - `overflow`
+   - `display`
+   - `flex-*`
+   - `grid-*`
+   - `align-*`
+   - `justify-*`
+   - `order`
+   - `gap`
+   - `overflow`
 
 3. **Dimensions and spacing**
-    - `width`
-    - `min-width`
-    - `max-width`
-    - `height`
-    - `min-height`
-    - `max-height`
-    - `margin`
-    - `padding`
+   - `width`
+   - `min-width`
+   - `max-width`
+   - `height`
+   - `min-height`
+   - `max-height`
+   - `margin`
+   - `padding`
 
 4. **Typography**
-    - `font-*`
-    - `line-height`
-    - `letter-spacing`
-    - `text-*`
-    - `white-space`
-    - `word-*`
+   - `font-*`
+   - `line-height`
+   - `letter-spacing`
+   - `text-*`
+   - `white-space`
+   - `word-*`
 
 5. **Visual styling**
-    - `color`
-    - `background-*`
-    - `border-*`
-    - `border-radius`
-    - `box-shadow`
-    - `opacity`
-    - `visibility`
+   - `color`
+   - `background-*`
+   - `border-*`
+   - `border-radius`
+   - `box-shadow`
+   - `opacity`
+   - `visibility`
 
 6. **Effects and interaction**
-    - `cursor`
-    - `pointer-events`
-    - `user-select`
-    - `appearance`
-    - `transition`
-    - `transform`, `translate`, `rotate`, `scale`
-    - `clip-path`
-    - `animation`
+   - `cursor`
+   - `pointer-events`
+   - `user-select`
+   - `appearance`
+   - `transition`
+   - `transform`, `translate`, `rotate`, `scale`
+   - `clip-path`
+   - `animation`
 
 Keep pseudo-elements and state-specific styles after the base declarations. Do not force declarations into a group when doing so would reduce readability.
 
@@ -263,6 +266,8 @@ pnpm build            # production build (also type-checks)
 pnpm start            # serve the production build
 pnpm run lint         # ESLint (next core-web-vitals + typescript); does not check CSS/SCSS
 pnpm run typecheck    # tsc --noEmit
+pnpm run format       # Prettier --write (also sorts imports)
+pnpm run format:check # Prettier --check (runs in CI)
 ```
 
 ## Git
@@ -282,6 +287,7 @@ pnpm run typecheck    # tsc --noEmit
 After making changes, run:
 
 ```bash
+pnpm run format
 pnpm run lint
 pnpm run typecheck
 pnpm build

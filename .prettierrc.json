@@ -1,0 +1,15 @@
+{
+  "printWidth": 100,
+  "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^react$",
+    "^react/(.*)$",
+    "^next$",
+    "^next/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@/(.*)$",
+    "^[./](?!.*\\.s?css$)",
+    "\\.s?css$"
+  ],
+  "importOrderTypeScriptVersion": "4.4.0"
+}

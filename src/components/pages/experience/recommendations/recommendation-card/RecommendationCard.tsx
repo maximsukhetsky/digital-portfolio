@@ -6,7 +6,15 @@ const cn = classNames.bind(styles);
 
 type RecommendationCardProps = Recommendation;
 
-export default function RecommendationCard({ name, initials, headline, relationship, date, text, linkedinUrl }: RecommendationCardProps) {
+export default function RecommendationCard({
+  name,
+  initials,
+  headline,
+  relationship,
+  date,
+  text,
+  linkedinUrl,
+}: RecommendationCardProps) {
   return (
     <li className={cn("recommendation-card")}>
       <div className={cn("author")}>

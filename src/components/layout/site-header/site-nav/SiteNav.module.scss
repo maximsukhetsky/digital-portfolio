@@ -22,7 +22,7 @@ $origin: calc(100% - 38px) 48px;
   visibility: hidden;
 
   transition:
-    clip-path 0.35s cubic-bezier(.77, 0, .18, 1) 0.15s,
+    clip-path 0.35s cubic-bezier(0.77, 0, 0.18, 1) 0.15s,
     visibility 0s linear 0.5s;
   clip-path: circle(0 at $origin);
 
@@ -30,7 +30,7 @@ $origin: calc(100% - 38px) 48px;
     visibility: visible;
 
     transition:
-      clip-path 0.5s cubic-bezier(.77, 0, .18, 1),
+      clip-path 0.5s cubic-bezier(0.77, 0, 0.18, 1),
       visibility 0s;
     clip-path: circle(150vmax at $origin);
   }

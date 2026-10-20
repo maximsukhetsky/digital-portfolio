@@ -1,10 +1,10 @@
 "use client";
 
 import classNames from "classnames/bind";
+import Button from "@/components/ui/button/Button";
 import FormField from "@/components/ui/form-field/FormField";
 import Input from "@/components/ui/input/Input";
 import Textarea from "@/components/ui/textarea/Textarea";
-import Button from "@/components/ui/button/Button";
 import type { ContactFormStatus } from "@/lib/contact-form/types";
 import Honeypot from "./honeypot/Honeypot";
 import useContactForm from "./useContactForm";
@@ -29,10 +29,20 @@ export default function ContactForm() {
       <FormField label="Email" error={errors.email} htmlFor="email" className={cn("form-field")}>
         <Input type="email" {...register("email")} />
       </FormField>
-      <FormField label="Subject" error={errors.subject} htmlFor="subject" className={cn("form-field")}>
+      <FormField
+        label="Subject"
+        error={errors.subject}
+        htmlFor="subject"
+        className={cn("form-field")}
+      >
         <Input {...register("subject")} />
       </FormField>
-      <FormField label="Message" error={errors.message} htmlFor="message" className={cn("form-field")}>
+      <FormField
+        label="Message"
+        error={errors.message}
+        htmlFor="message"
+        className={cn("form-field")}
+      >
         <Textarea rows={5} {...register("message")} />
       </FormField>
       <div className={cn("control")}>

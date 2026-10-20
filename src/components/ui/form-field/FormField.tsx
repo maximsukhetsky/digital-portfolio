@@ -18,7 +18,11 @@ export default function FormField({ children, label, error, htmlFor, className }
     <div className={className}>
       <Label htmlFor={htmlFor}>{label}</Label>
       {children}
-      {error && <span className={cn("error")} role="alert" id={`${htmlFor}-error`}>{error}</span>}
+      {error && (
+        <span className={cn("error")} role="alert" id={`${htmlFor}-error`}>
+          {error}
+        </span>
+      )}
     </div>
   );
 }

@@ -6,7 +6,13 @@ const cn = classNames.bind(styles);
 
 type ExperienceItemProps = ExperienceEntry;
 
-export default function ExperienceItem({ role, company, period, summary, achievements }: ExperienceItemProps) {
+export default function ExperienceItem({
+  role,
+  company,
+  period,
+  summary,
+  achievements,
+}: ExperienceItemProps) {
   return (
     <li className={cn("experience-item")}>
       <div className={cn("heading")}>
