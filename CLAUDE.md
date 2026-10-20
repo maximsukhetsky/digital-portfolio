@@ -13,6 +13,7 @@ Personal digital portfolio site (English content, `<html lang="en">`). Started f
 - TypeScript
 - SCSS (Sass) with CSS Modules
 - ESLint
+- Prettier (with `@ianvs/prettier-plugin-sort-imports`)
 
 ## Development Guidelines
 
@@ -39,8 +40,10 @@ Personal digital portfolio site (English content, `<html lang="en">`). Started f
 - Do not use deprecated APIs or types (e.g. `FormEvent`, `forwardRef`); check `@deprecated` notes in type definitions.
 - Convert values to boolean with `!!value`, not `Boolean(value)`.
 
-### Imports
+### Formatting and Imports
 
+- Prettier owns formatting (`.prettierrc.json`, `printWidth: 100`); don't hand-format against it.
+- Import order is enforced by the Prettier plugin, in one block without blank lines: `react` → `next` → third-party packages → `@/` aliases → relative imports → style imports last.
 - Use named type imports from React with `import type`, such as `ReactNode` instead of `React.ReactNode`. Apply this convention consistently in new code.
 
 ### Event Handler Naming
@@ -263,6 +266,8 @@ pnpm build            # production build (also type-checks)
 pnpm start            # serve the production build
 pnpm run lint         # ESLint (next core-web-vitals + typescript); does not check CSS/SCSS
 pnpm run typecheck    # tsc --noEmit
+pnpm run format       # Prettier --write (also sorts imports)
+pnpm run format:check # Prettier --check (runs in CI)
 ```
 
 ## Git
@@ -282,6 +287,7 @@ pnpm run typecheck    # tsc --noEmit
 After making changes, run:
 
 ```bash
+pnpm run format
 pnpm run lint
 pnpm run typecheck
 pnpm build
