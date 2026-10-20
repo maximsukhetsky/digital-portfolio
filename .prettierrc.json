@@ -8,8 +8,8 @@
     "^next/(.*)$",
     "<THIRD_PARTY_MODULES>",
     "^@/(.*)$",
-    "^[./]",
+    "^[./](?!.*\\.s?css$)",
     "\\.s?css$"
   ],
-  "importOrderTypeScriptVersion": "5.0.0"
+  "importOrderTypeScriptVersion": "4.4.0"
 }
