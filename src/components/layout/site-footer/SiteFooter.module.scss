@@ -1,3 +1,4 @@
+@use "@/styles/mixins/breakpoints" as bp;
 @use "@/styles/mixins/typography" as t;
 @use "@/styles/tokens/variables" as v;
 
@@ -7,8 +8,32 @@
   padding-top: 64px;
   padding-bottom: 64px;
 
+  @include bp.from(tablet) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  @include bp.from(desktop) {
+    grid-template-areas:
+      "heading form"
+      "socials form"
+      "copyright form";
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    // The last row takes the extra height of the form, keeping the copyright at the bottom.
+    grid-template-rows: auto auto 1fr;
+    column-gap: 24px;
+  }
+
   .heading {
     padding-bottom: 64px;
+
+    @include bp.from(tablet) {
+      padding-bottom: 40px;
+    }
+
+    @include bp.from(desktop) {
+      grid-area: heading;
+    }
 
     .title {
       padding-bottom: 16px;
@@ -18,6 +43,11 @@
       letter-spacing: -0.86px;
 
       color: v.$color-white;
+
+      @include bp.from(tablet) {
+        @include t.text(76px, 1);
+        letter-spacing: 0;
+      }
     }
 
     .subtitle {
@@ -25,6 +55,10 @@
       @include t.text(16px, 1.6);
 
       color: v.$color-offwhite;
+
+      @include bp.from(tablet) {
+        @include t.text(18px, 1.5);
+      }
 
       &:first-of-type {
         padding-bottom: 8px;
@@ -44,6 +78,16 @@
 
     padding-bottom: 64px;
 
+    @include bp.from(tablet) {
+      gap: 24px;
+    }
+
+    @include bp.from(desktop) {
+      grid-area: socials;
+
+      padding-bottom: 0;
+    }
+
     .social-link {
       width: 32px;
       height: 32px;
@@ -57,5 +101,10 @@
     @include t.text(16px, 1.6, 500);
 
     color: v.$color-offwhite;
+
+    @include bp.from(desktop) {
+      grid-area: copyright;
+      align-self: end;
+    }
   }
 }

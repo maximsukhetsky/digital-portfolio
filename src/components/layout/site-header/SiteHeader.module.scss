@@ -1,3 +1,4 @@
+@use "@/styles/mixins/breakpoints" as bp;
 @use "@/styles/mixins/typography" as t;
 @use "@/styles/tokens/variables" as v;
 
@@ -25,12 +26,21 @@ $bracket-scale: 1.4;
 
   background-color: v.$color-black;
 
+  @include bp.from(tablet) {
+    min-height: 96px;
+  }
+
   .logo {
     font-family: v.$bebas-neue-font;
     @include t.text(28px, 1);
     letter-spacing: -0.28px;
 
     color: v.$color-offwhite;
+
+    @include bp.from(tablet) {
+      @include t.text(32px, 1.5);
+      letter-spacing: -0.32px;
+    }
 
     .char {
       position: relative;

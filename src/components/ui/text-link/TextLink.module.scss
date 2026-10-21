@@ -1,3 +1,4 @@
+@use "@/styles/mixins/breakpoints" as bp;
 @use "@/styles/mixins/typography" as t;
 @use "@/styles/tokens/variables" as v;
 
@@ -15,8 +16,22 @@
   color: v.$color-primary;
   border-bottom: 2px solid v.$color-primary;
 
+  @include bp.from(tablet) {
+    @include t.text(16px, 1.5);
+  }
+
   .icon {
-    width: 22px;
-    height: 22px;
+    display: flex;
+
+    // Sized on the svg, so a parent module can override it for a specific icon.
+    & svg {
+      width: 22px;
+      height: 22px;
+
+      @include bp.from(tablet) {
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
 }

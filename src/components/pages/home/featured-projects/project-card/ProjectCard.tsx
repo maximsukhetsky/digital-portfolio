@@ -56,6 +56,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               icon={githubSVG}
+              className={cn("github-link")}
             >
               See on Github
             </TextLink>

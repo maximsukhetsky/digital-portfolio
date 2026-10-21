@@ -1,3 +1,4 @@
+@use "@/styles/mixins/breakpoints" as bp;
 @use "@/styles/mixins/typography" as t;
 @use "@/styles/tokens/variables" as v;
 
@@ -11,7 +12,25 @@
 
   border-bottom: 1px solid v.$color-dark-gray;
 
+  @include bp.from(tablet) {
+    display: grid;
+    // Column widths from the design (512px text, 600px photo), scaled down proportionally.
+    grid-template-columns: minmax(0, 512fr) minmax(0, 600fr);
+    align-items: center;
+    gap: 40px;
+
+    padding-top: 30px;
+    padding-bottom: 80px;
+  }
+
+  @include bp.from(desktop) {
+    gap: 80px;
+  }
+
   .intro {
+    // The title size follows the column width.
+    container-type: inline-size;
+
     .title {
       padding-bottom: 12px;
 
@@ -20,6 +39,13 @@
       text-transform: uppercase;
 
       color: v.$color-white;
+
+      @include bp.from(tablet) {
+        padding-bottom: 8px;
+
+        // Keeps the name on one line: it is ~5.85em wide.
+        @include t.text(min(17cqi, 87px), 0.9);
+      }
     }
 
     .description {
@@ -29,6 +55,16 @@
       @include t.text(16px, 1.6);
 
       color: v.$color-offwhite;
+
+      @include bp.from(tablet) {
+        opacity: 0.5;
+      }
+
+      @include bp.from(desktop) {
+        padding-bottom: 40px;
+
+        @include t.text(18px, 1.5);
+      }
     }
   }
 
@@ -37,5 +73,11 @@
     height: auto;
 
     border-radius: 16px;
+
+    @include bp.from(tablet) {
+      aspect-ratio: 600 / 700;
+
+      object-fit: cover;
+    }
   }
 }

@@ -1,17 +1,27 @@
+@use "@/styles/mixins/breakpoints" as bp;
 @use "@/styles/mixins/typography" as t;
 @use "@/styles/tokens/variables" as v;
 
 .contact-form {
   width: 100%;
-  max-width: 600px;
-
   padding-bottom: 80px;
+
+  @include bp.from(desktop) {
+    // Right column of the SiteFooter grid.
+    grid-area: form;
+
+    padding-bottom: 0;
+  }
 
   .form-field {
     padding-bottom: 24px;
 
     &:nth-last-child(1 of .form-field) {
       padding-bottom: 32px;
+
+      @include bp.from(tablet) {
+        padding-bottom: 40px;
+      }
     }
   }
 

@@ -1,3 +1,4 @@
+@use "@/styles/mixins/breakpoints" as bp;
 @use "@/styles/mixins/typography" as t;
 @use "@/styles/tokens/variables" as v;
 
@@ -18,6 +19,13 @@
   resize: none;
 
   transition: 0.1s linear;
+
+  // Matches the design: 12px vertical padding including the 1px border.
+  @include bp.from(tablet) {
+    padding: 11px 16px;
+
+    @include t.text(18px, 1.5);
+  }
 
   &--error {
     border-color: v.$color-error;

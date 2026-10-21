@@ -7,6 +7,10 @@
   align-items: center;
   gap: 12px;
 
+  @include bp.from(desktop) {
+    gap: 16px;
+  }
+
   .cta {
     display: flex;
     align-items: center;
@@ -26,6 +30,16 @@
     background-color: v.$color-primary;
     border-radius: 50px;
 
+    @include bp.from(desktop) {
+      height: 54px;
+      // Extra space before the social links, as in the design (25px spacer + 16px gap).
+      margin-right: 41px;
+      padding-left: 24px;
+      padding-right: 6px;
+
+      @include t.text(16px, 1, 700);
+    }
+
     .icon {
       display: flex;
       justify-content: center;
@@ -36,6 +50,11 @@
 
       background-color: v.$color-black;
       border-radius: 50px;
+
+      @include bp.from(desktop) {
+        width: 42px;
+        height: 42px;
+      }
 
       & svg {
         width: 20px;
@@ -131,9 +150,19 @@
     background-color: v.$color-elevated;
     border-radius: 50px;
 
+    @include bp.from(desktop) {
+      width: 54px;
+      height: 54px;
+    }
+
     & svg {
       width: 24px;
       height: 24px;
+
+      @include bp.from(desktop) {
+        width: 26px;
+        height: 26px;
+      }
 
       & path {
         fill: v.$color-primary;
