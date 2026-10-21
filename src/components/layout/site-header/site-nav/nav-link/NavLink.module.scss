@@ -29,6 +29,9 @@
   }
 
   @include bp.from(tablet) {
+    @include t.text(16px, 24px);
+    letter-spacing: -0.48px;
+
     opacity: 1;
 
     transition: none;

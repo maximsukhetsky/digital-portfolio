@@ -1,43 +1,108 @@
+@use "@/styles/mixins/breakpoints" as bp;
 @use "@/styles/mixins/typography" as t;
 @use "@/styles/tokens/variables" as v;
 
 .about-me {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
   padding-top: 64px;
   padding-bottom: 64px;
 
   border-bottom: 1px solid v.$color-dark-gray;
 
-  .title {
-    padding-bottom: 12px;
-
-    font-family: v.$bebas-neue-font;
-    @include t.text(43px, 1);
-    letter-spacing: -0.86px;
-
-    color: v.$color-white;
+  @include bp.from(tablet) {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 
-  .description {
-    padding-bottom: 16px;
+  @include bp.from(desktop) {
+    display: grid;
+    // Text column width from the design (704px); the photo column takes the rest.
+    grid-template-columns: minmax(0, 408fr) minmax(0, 704fr);
+    gap: 80px;
+  }
 
-    font-family: v.$manrope-font;
-    @include t.text(16px, 1.6);
+  // Up to desktop the columns dissolve, so the photo can sit between the text and the link.
+  .aside,
+  .content {
+    display: contents;
 
-    color: v.$color-offwhite;
-
-    &:last-of-type {
-      padding-bottom: 24px;
+    @include bp.from(desktop) {
+      display: block;
     }
   }
 
-  .photo-box {
-    padding-bottom: 24px;
+  .aside {
+    .title {
+      padding-bottom: 12px;
 
-    .photo {
+      font-family: v.$bebas-neue-font;
+      @include t.text(43px, 1);
+      letter-spacing: -0.86px;
+
+      color: v.$color-white;
+
+      @include bp.from(tablet) {
+        padding-bottom: 40px;
+
+        @include t.text(101px, 0.9);
+        letter-spacing: 0;
+      }
+    }
+
+    .photo-box {
+      order: 1;
+
       width: 100%;
-      height: auto;
+      padding-bottom: 24px;
 
-      border-radius: 16px;
+      @include bp.from(desktop) {
+        padding-bottom: 0;
+      }
+
+      .photo {
+        width: 100%;
+        height: auto;
+
+        border-radius: 16px;
+      }
+    }
+  }
+
+  .content {
+    .description {
+      padding-bottom: 16px;
+
+      font-family: v.$manrope-font;
+      @include t.text(16px, 1.6);
+
+      color: v.$color-offwhite;
+
+      @include bp.from(tablet) {
+        @include t.text(18px, 1.5);
+      }
+
+      &:first-of-type {
+        @include bp.from(tablet) {
+          @include t.text(32px, 1.4, 500);
+
+          color: v.$color-white;
+        }
+      }
+
+      &:last-of-type {
+        padding-bottom: 24px;
+
+        @include bp.from(desktop) {
+          padding-bottom: 53px;
+        }
+      }
+    }
+
+    .link {
+      order: 2;
     }
   }
 }

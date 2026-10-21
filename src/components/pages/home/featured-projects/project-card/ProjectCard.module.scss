@@ -1,3 +1,4 @@
+@use "@/styles/mixins/breakpoints" as bp;
 @use "@/styles/mixins/typography" as t;
 @use "@/styles/tokens/variables" as v;
 
@@ -6,6 +7,12 @@
   flex-direction: column;
   gap: 40px;
 
+  @include bp.from(desktop) {
+    flex-direction: row;
+    align-items: center;
+    gap: 48px;
+  }
+
   .preview {
     position: relative;
 
@@ -13,6 +20,23 @@
 
     background-color: v.$color-surface;
     border-radius: 6px;
+
+    // Screenshot centered in the card, as in the design (488px inside a 600px card).
+    @include bp.from(tablet) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 56px;
+
+      border-radius: 12px;
+    }
+
+    @include bp.from(desktop) {
+      flex: 0 1 600px;
+
+      aspect-ratio: 1;
+    }
 
     .label {
       position: absolute;
@@ -28,20 +52,42 @@
       color: v.$color-white;
       background-color: v.$color-black;
       border-radius: 16px;
+
+      @include bp.from(tablet) {
+        top: 16px;
+        left: 16px;
+
+        padding: 8px 16px;
+
+        @include t.text(14px, 1.5);
+        letter-spacing: 0;
+      }
     }
 
     .photo {
       width: 100%;
       max-width: 456px;
       height: auto;
+      margin: 0 auto;
 
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
+
+      @include bp.from(tablet) {
+        max-width: 488px;
+
+        border-radius: 12px;
+      }
     }
   }
 
   .content {
     flex-shrink: 1.2;
+
+    @include bp.from(desktop) {
+      // Wrapper content (1192px) minus the 600px preview and the 48px gap.
+      flex-basis: 544px;
+    }
 
     .title {
       padding-bottom: 16px;
@@ -50,6 +96,10 @@
       @include t.text(24px, 1.4, 500);
 
       color: v.$color-white;
+
+      @include bp.from(tablet) {
+        @include t.text(32px, 1.4);
+      }
     }
 
     .description {
@@ -59,10 +109,18 @@
       @include t.text(16px, 1.6);
 
       color: v.$color-offwhite;
+
+      @include bp.from(tablet) {
+        @include t.text(18px, 1.5);
+      }
     }
 
     .info {
       padding-bottom: 40px;
+
+      @include bp.from(tablet) {
+        padding-bottom: 48px;
+      }
 
       .info-title {
         padding-bottom: 16px;
@@ -72,6 +130,10 @@
         text-transform: uppercase;
 
         color: v.$color-white;
+
+        @include bp.from(tablet) {
+          @include t.text(16px, 1.5, 600);
+        }
       }
 
       .details {
@@ -105,6 +167,13 @@
     .controls {
       display: flex;
       gap: 24px;
+
+      .github-link svg {
+        @include bp.from(tablet) {
+          width: 26px;
+          height: 26px;
+        }
+      }
     }
   }
 }
