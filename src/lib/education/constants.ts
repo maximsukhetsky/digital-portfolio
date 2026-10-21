@@ -1,4 +1,5 @@
 import danItCertificate from "@/assets/images/education/DANIT_certificate.webp";
+import hillelCertificate from "@/assets/images/education/Hillel_IT_School_certificate.webp";
 import kneuDiploma from "@/assets/images/education/Kyiv_National_University_of_Economics_diploma.webp";
 import type { Course, EducationEntry } from "./types";
 
@@ -26,6 +27,10 @@ export const COURSES: readonly Course[] = [
     provider: "Hillel IT School",
     location: "Remote",
     period: "October 2026",
+    certificate: {
+      url: "https://certificate.ithillel.ua/view/81574247",
+      image: hillelCertificate,
+    },
   },
   {
     title: "Frontend Development Course",
