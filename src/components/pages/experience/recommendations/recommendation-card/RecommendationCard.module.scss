@@ -1,3 +1,4 @@
+@use "@/styles/mixins/breakpoints" as bp;
 @use "@/styles/mixins/typography" as t;
 @use "@/styles/tokens/variables" as v;
 
@@ -7,8 +8,16 @@
   background-color: v.$color-surface;
   border-radius: 16px;
 
+  @include bp.from(tablet) {
+    padding: 32px;
+  }
+
   &:not(:last-child) {
     margin-bottom: 24px;
+
+    @include bp.from(desktop) {
+      margin-bottom: 0;
+    }
   }
 
   .author {
@@ -16,6 +25,10 @@
     align-items: center;
     gap: 16px;
     padding-bottom: 16px;
+
+    @include bp.from(tablet) {
+      padding-bottom: 24px;
+    }
 
     .avatar {
       display: flex;
@@ -40,6 +53,11 @@
         @include t.text(18px, 1.3, 500);
 
         color: v.$color-white;
+
+        @include bp.from(tablet) {
+          @include t.text(24px, 1.3, 500);
+          letter-spacing: -0.24px;
+        }
       }
 
       .headline {
@@ -47,6 +65,10 @@
         @include t.text(16px, 1.6);
 
         color: v.$color-offwhite;
+
+        @include bp.from(tablet) {
+          @include t.text(18px, 1.5);
+        }
       }
 
       .meta {
@@ -54,6 +76,10 @@
         @include t.text(14px, 1.6);
 
         color: v.$color-offwhite;
+
+        @include bp.from(tablet) {
+          @include t.text(16px, 1.6);
+        }
       }
     }
   }
@@ -63,6 +89,10 @@
     @include t.text(16px, 1.6);
 
     color: v.$color-offwhite;
+
+    @include bp.from(tablet) {
+      @include t.text(18px, 1.5);
+    }
 
     .paragraph:not(:last-child) {
       padding-bottom: 12px;

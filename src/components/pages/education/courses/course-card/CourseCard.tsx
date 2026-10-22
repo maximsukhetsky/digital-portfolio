@@ -21,7 +21,13 @@ export default function CourseCard({
       <p className={cn("meta")}>
         {location} · {period}
       </p>
-      {certificate && <DocumentImage {...certificate} alt={`${provider} certificate`} />}
+      {certificate && (
+        <DocumentImage
+          {...certificate}
+          imageClassName={cn("certificate")}
+          alt={`${provider} certificate`}
+        />
+      )}
     </li>
   );
 }
