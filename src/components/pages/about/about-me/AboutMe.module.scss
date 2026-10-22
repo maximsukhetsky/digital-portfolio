@@ -1,3 +1,4 @@
+@use "@/styles/mixins/breakpoints" as bp;
 @use "@/styles/mixins/typography" as t;
 @use "@/styles/tokens/variables" as v;
 
@@ -5,8 +6,26 @@
   padding-top: 40px;
   padding-bottom: 80px;
 
+  @include bp.from(tablet) {
+    padding-top: 80px;
+  }
+
+  @include bp.from(desktop) {
+    padding-top: 160px;
+    padding-bottom: 120px;
+  }
+
   .inner {
     padding-bottom: 80px;
+
+    @include bp.from(desktop) {
+      display: grid;
+      // Text column width from the design (704px); the title column takes the rest.
+      grid-template-columns: minmax(0, 440fr) minmax(0, 704fr);
+      gap: 80px;
+
+      padding-bottom: 120px;
+    }
 
     .title {
       padding-bottom: 16px;
@@ -16,11 +35,25 @@
       text-transform: uppercase;
 
       color: v.$color-white;
+
+      @include bp.from(tablet) {
+        padding-bottom: 40px;
+
+        @include t.text(101px, 0.9);
+      }
+
+      @include bp.from(desktop) {
+        padding-bottom: 0;
+      }
     }
 
     .content {
       .text {
         padding-bottom: 40px;
+
+        @include bp.from(tablet) {
+          padding-bottom: 48px;
+        }
 
         .lead {
           padding-bottom: 8px;
@@ -29,6 +62,12 @@
           @include t.text(24px, 1.4, 500);
 
           color: v.$color-white;
+
+          @include bp.from(tablet) {
+            padding-bottom: 16px;
+
+            @include t.text(32px, 1.4, 500);
+          }
         }
 
         .description {
@@ -36,6 +75,10 @@
           @include t.text(16px, 1.6);
 
           color: v.$color-offwhite;
+
+          @include bp.from(tablet) {
+            @include t.text(18px, 1.5);
+          }
         }
       }
     }
@@ -46,5 +89,12 @@
     height: auto;
 
     border-radius: 16px;
+
+    @include bp.from(tablet) {
+      aspect-ratio: 1224 / 800;
+
+      object-fit: cover;
+      object-position: top;
+    }
   }
 }
