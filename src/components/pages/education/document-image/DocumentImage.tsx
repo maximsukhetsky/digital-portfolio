@@ -6,10 +6,11 @@ import styles from "./DocumentImage.module.scss";
 const cn = classNames.bind(styles);
 
 type DocumentImageProps = ScannedDocument & {
+  imageClassName?: string;
   alt: string;
 };
 
-export default function DocumentImage({ image, url, alt }: DocumentImageProps) {
+export default function DocumentImage({ image, url, imageClassName, alt }: DocumentImageProps) {
   return (
     <a
       href={url ?? image.src}
@@ -19,8 +20,8 @@ export default function DocumentImage({ image, url, alt }: DocumentImageProps) {
     >
       <Image
         src={image}
-        sizes="(min-width: 648px) 600px, 100vw"
-        className={cn("image")}
+        sizes="(min-width: 1024px) 800px, 100vw"
+        className={cn("image", imageClassName)}
         alt={alt}
       />
     </a>

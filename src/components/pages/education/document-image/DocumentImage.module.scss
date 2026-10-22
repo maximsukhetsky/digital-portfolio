@@ -7,6 +7,10 @@
 
   transition: opacity 0.2s ease;
 
+  @include bp.from(tablet) {
+    margin-top: 24px;
+  }
+
   @include bp.hover {
     &:hover {
       opacity: 0.8;
@@ -17,7 +21,6 @@
     display: block;
 
     width: 100%;
-    max-width: 600px;
     height: auto;
 
     border-radius: 4px;
