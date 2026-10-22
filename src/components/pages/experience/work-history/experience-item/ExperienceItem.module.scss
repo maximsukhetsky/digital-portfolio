@@ -1,16 +1,46 @@
+@use "@/styles/mixins/breakpoints" as bp;
 @use "@/styles/mixins/typography" as t;
 @use "@/styles/tokens/variables" as v;
 
 .experience-item {
   width: 100%;
-  max-width: 600px;
+
+  @include bp.from(desktop) {
+    // Timeline row: period and company on the left, role and details on the right.
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    grid-template-areas:
+      "period role"
+      "company summary"
+      ". achievements";
+    align-items: start;
+    column-gap: 24px;
+  }
 
   &:not(:last-child) {
     padding-bottom: 40px;
+
+    @include bp.from(tablet) {
+      padding-bottom: 80px;
+    }
   }
 
   .heading {
     padding-bottom: 12px;
+
+    @include bp.from(tablet) {
+      // Role and period share the first row, as in the design; the company goes below.
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: 8px;
+
+      padding-bottom: 16px;
+    }
+
+    // Its children become cells of the timeline grid.
+    @include bp.from(desktop) {
+      display: contents;
+    }
 
     .role {
       padding-bottom: 4px;
@@ -20,6 +50,19 @@
       letter-spacing: -0.18px;
 
       color: v.$color-white;
+
+      @include bp.from(tablet) {
+        padding-bottom: 0;
+
+        @include t.text(24px, 1.3, 500);
+        letter-spacing: -0.24px;
+      }
+
+      @include bp.from(desktop) {
+        grid-area: role;
+
+        padding-bottom: 16px;
+      }
     }
 
     .period {
@@ -30,6 +73,16 @@
       white-space: nowrap;
 
       color: v.$color-offwhite;
+
+      @include bp.from(tablet) {
+        padding-bottom: 0;
+
+        @include t.text(18px, 1.5);
+      }
+
+      @include bp.from(desktop) {
+        grid-area: period;
+      }
     }
 
     .company {
@@ -37,6 +90,20 @@
       @include t.text(16px, 1.6, 600);
 
       color: v.$color-primary;
+
+      @include bp.from(tablet) {
+        grid-column: 1 / -1;
+
+        padding-top: 8px;
+
+        @include t.text(18px, 1.6, 600);
+      }
+
+      @include bp.from(desktop) {
+        grid-area: company;
+
+        padding-top: 4px;
+      }
     }
   }
 
@@ -47,12 +114,26 @@
     @include t.text(16px, 1.6);
 
     color: v.$color-offwhite;
+
+    @include bp.from(tablet) {
+      padding-bottom: 16px;
+
+      @include t.text(18px, 1.5);
+    }
+
+    @include bp.from(desktop) {
+      grid-area: summary;
+    }
   }
 
   .achievements {
     padding-left: 20px;
 
     list-style: disc;
+
+    @include bp.from(desktop) {
+      grid-area: achievements;
+    }
 
     .achievement {
       padding-bottom: 8px;
@@ -61,6 +142,10 @@
       @include t.text(16px, 1.6);
 
       color: v.$color-offwhite;
+
+      @include bp.from(tablet) {
+        @include t.text(18px, 1.5);
+      }
 
       &:last-child {
         padding-bottom: 0;
