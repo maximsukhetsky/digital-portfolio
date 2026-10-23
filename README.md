@@ -4,7 +4,7 @@
 
 Personal portfolio of **Maxim Sukhetsky**, Frontend Engineer based in Kyiv.
 
-**Live:** <LIVE_URL>
+**Live:** [<LIVE_URL>](https://digital-portfolio-maxim-sukhetsky.vercel.app/)
 
 ## Tech Stack
 
