@@ -228,7 +228,7 @@ Keep pseudo-elements and state-specific styles after the base declarations. Do n
 - Non-React logic lives in `src/lib/contact-form/` (types, constants, validation schema, parsing, spam check, the `sendContactEmail` Server Action); React code (the form, its hooks, the honeypot) lives in `src/components/layout/site-footer/contact-form/`.
 - Data flow: `ContactForm` → `useContactForm` (client validation via `parseContactForm`) → `sendContactEmail` (server: `isSpam` → `parseContactForm` again → Resend) → `{ status }` → `useTemporaryStatus` shows the message for `STATUS_TIMEOUT`.
 - Spam protection: a hidden honeypot field plus a minimum fill time; spam gets a fake `success` and no email.
-- Sending requires `RESEND_API_KEY` (`.env.local` locally, project env vars on Vercel).
+- Sending requires `RESEND_API_KEY` (`.env` locally, project env vars on Vercel).
 
 ### Icons
 
