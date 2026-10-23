@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { AUTHOR_NAME } from "@/constants/common";
 import { bebasNeueFont, interFont, manropeFont } from "@/lib/fonts";
 import "@/styles/globals.scss";
@@ -18,7 +19,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${bebasNeueFont.variable} ${interFont.variable} ${manropeFont.variable}`}
       data-scroll-behavior="smooth"
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
