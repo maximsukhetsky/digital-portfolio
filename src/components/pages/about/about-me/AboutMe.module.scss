@@ -79,6 +79,10 @@
           @include bp.from(tablet) {
             @include t.text(18px, 1.5);
           }
+
+          &:not(:last-child) {
+            padding-bottom: 16px;
+          }
         }
       }
     }
