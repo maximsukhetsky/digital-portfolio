@@ -76,8 +76,9 @@ Every push and pull request to `main` runs CI:
 1. ESLint
 2. Prettier format check
 3. TypeScript type check (after `next typegen`, which generates the typed route definitions in `.next/types` on a clean checkout)
-4. Production build
-5. Smoke tests against the running production server (`scripts/smoke.test.mjs`): page titles, metadata, active navigation, static assets and the 404 status.
+4. Unit tests (Vitest, `tests/contact-form/`): contact form validation, spam checks and the `sendContactEmail` Server Action with a mocked Resend client.
+5. Production build
+6. Smoke tests against the running production server (`node --test`, `tests/smoke/`): `pages.test.mjs` checks page titles, metadata, static prerendering, static assets and the 404 status; `navigation.test.mjs` checks the main navigation links and the active link.
 
 The smoke tests run against `http://localhost:3000` by default. Set `SMOKE_URL` to check any other deployment, e.g. a Vercel preview:
 
@@ -106,6 +107,7 @@ pnpm dev                     # http://localhost:3000
 | `pnpm run typecheck`    | Run the TypeScript type check                   |
 | `pnpm run format`       | Format all files with Prettier and sort imports |
 | `pnpm run format:check` | Check formatting without writing                |
+| `pnpm run test`         | Run unit tests                                  |
 | `pnpm run smoke`        | Run smoke tests against a running server        |
 
 ### Environment variables

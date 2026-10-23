@@ -256,6 +256,12 @@ Before modifying code:
 4. Prefer the smallest change that solves the problem.
 5. Do not modify unrelated files.
 
+## Tests
+
+- All tests live in `tests/`, one file per logical area; `src/` holds no tests.
+- `tests/contact-form/` — Vitest unit tests for `src/lib/contact-form/` (Resend is mocked, no network).
+- `tests/smoke/` — `node --test` smoke tests against a running server (`SMOKE_URL`, default `http://localhost:3000`): `pages.test.mjs` for pages, `navigation.test.mjs` for nav links; shared helpers in `helpers.mjs`.
+
 ## Commands
 
 Package manager is **pnpm only** (`packageManager: pnpm@11.0.0`); don't use npm/yarn/bun.
@@ -268,6 +274,8 @@ pnpm run lint         # ESLint (next core-web-vitals + typescript); does not che
 pnpm run typecheck    # tsc --noEmit
 pnpm run format       # Prettier --write (also sorts imports)
 pnpm run format:check # Prettier --check (runs in CI)
+pnpm run test         # Vitest unit tests (tests/**/*.test.ts)
+pnpm run smoke        # node --test smoke tests (tests/smoke/) against a running server
 ```
 
 ## Git
@@ -290,5 +298,6 @@ After making changes, run:
 pnpm run format
 pnpm run lint
 pnpm run typecheck
+pnpm run test
 pnpm build
 ```
