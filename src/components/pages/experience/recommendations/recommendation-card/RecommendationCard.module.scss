@@ -12,6 +12,12 @@
     padding: 32px;
   }
 
+  @include bp.from(desktop) {
+    &:first-child {
+      grid-column: span 2;
+    }
+  }
+
   &:not(:last-child) {
     margin-bottom: 24px;
 
