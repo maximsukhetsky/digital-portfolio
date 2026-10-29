@@ -61,6 +61,20 @@ export const EXPERIENCE: readonly ExperienceEntry[] = [
 
 export const RECOMMENDATIONS: readonly Recommendation[] = [
   {
+    name: "Valentine Ostapenko",
+    initials: "VO",
+    headline: "CTO | Head of Engineering",
+    relationship: "Head of IT department",
+    date: "October 2026",
+    text: [
+      "I had the pleasure of working with Maxim for three and half years at SeaRates, where I was Head of IT and he worked as a Frontend Engineer. Throughout our time working together, he consistently demonstrated strong technical skills, a high level of ownership, and a thoughtful approach to solving complex engineering challenges.",
+      "He has solid expertise in React and TypeScript and experience building scalable web applications, implementing Micro Frontend architectures, and optimizing application performance. One of his notable contributions was improving the initial loading time of a scheduling application from 40–50 seconds to approximately 10 seconds. He also significantly improved test coverage for a critical authorization application, helping ensure reliability across multiple integrated applications.",
+      "Beyond his technical abilities, Maxim is a reliable and collaborative team player who takes ownership of his work from planning and implementation through testing and release. He works effectively with cross-functional teams, contributes to code quality, and consistently looks for ways to improve the product and the development process.",
+      "I highly recommend Maxim to any engineering team looking for a skilled, dependable, and results-driven Frontend Engineer. It was a pleasure working with him, and I’m confident he will bring significant value to his next team.",
+    ],
+    linkedinUrl: "https://www.linkedin.com/in/valentine-ostapenko/",
+  },
+  {
     name: "Mykhailo Kazymyrskyi",
     initials: "MK",
     headline: "Senior software engineer",
